@@ -1,0 +1,9 @@
+{
+	"Changelist" : 3241561,
+	"CompatibleChangelist" : 3195953,
+	"BuildId" : "2e7b445f-6477-4ce0-aaf3-ce0f9c0c4d14",
+	"Modules" : 
+	{
+		"HapticSuit" : "UE4Editor-HapticSuit.dll"
+	}
+}

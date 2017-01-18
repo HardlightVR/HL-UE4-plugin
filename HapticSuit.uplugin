@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": ".1.2",
+	"FriendlyName": "HapticSuit",
+	"Description": "Allows communication with the NSVR Service plugin through Blueprints.",
+	"Category": "Haptics",
+	"CreatedBy": "NullSpace Vr",
+	"CreatedByURL": "http://nullspacevr.com/",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "HapticSuit",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		}
+	],
+	"RequiresBuildPlatform": false
+}
