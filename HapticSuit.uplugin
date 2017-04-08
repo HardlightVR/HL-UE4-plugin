@@ -18,6 +18,11 @@
 			"Name": "HapticSuit",
 			"Type": "Runtime",
 			"LoadingPhase": "PreDefault"
+		},
+		{
+			"Name": "HapticImporter",
+			"Type": "Editor",
+			"LoadingPhase": "PreDefault"
 		}
 	],
 	"RequiresBuildPlatform": false
