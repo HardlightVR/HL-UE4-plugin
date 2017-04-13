@@ -1,9 +1,11 @@
 #include "HapticSuitPrivatePCH.h"
 #include "HapticBlueprintLibrary.h"
 #include "UHapticSequence.h"
+#include "UHapticPattern.h"
 #include "UPlaybackHandle.h"
 #include "UPlaybackHandleImpl.h"
 #include "FBasicHapticEvent.h"
+#include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
 #include "NSLoader.h"
 bool UHapticBlueprintLibrary::IsConnectedToSuit()
 {
@@ -12,9 +14,26 @@ bool UHapticBlueprintLibrary::IsConnectedToSuit()
 }
 
 
-void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticSequence* seq, int area) {
+void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, const UHapticSequence* seq, int area) {
 	for (const auto& item : seq->EffectArray) {
 		timeline->Add(FBasicHapticEvent(timeOffset + item.Time, item.Duration, item.Strength, (int)item.Effect, area));
+	}
+}
+
+void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticPattern* pat)
+{
+	for (const auto& item : pat->SequenceArray) {
+		auto seqPtr = item.Sequence.Get();
+		if (seqPtr != nullptr) {
+			EncodeSequence(timeOffset + item.Args.Time, timeline, seqPtr, item.Args.Area);
+			UE_LOG(LogTemp, Warning, TEXT("Add seq at time %.4f, area %d"), timeOffset+item.Args.Time, item.Args.Area);
+
+		}
+		else {
+			UE_LOG(LogTemp, Warning, TEXT("The seq wasn't loaded"));
+
+		}
+		//EncodeSequence()
 	}
 }
 
@@ -34,6 +53,16 @@ UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle(int32  area, UHapticSeque
 	handle->ProvideHandleImplementation(timeline->Transmit());
 	return handle;
 
+}
+
+
+UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle2(UHapticPattern* pat)
+{
+	auto timeline = FHapticSuitModule::Get().CreateTimeline();
+	EncodePattern(0, timeline, pat);
+	auto handle = NewObject<UPlaybackHandle>();
+	handle->ProvideHandleImplementation(timeline->Transmit());
+	return handle;
 }
 
 bool UHapticBlueprintLibrary::PlayTestRoutine() {

@@ -12,12 +12,10 @@
 UCLASS(Blueprintable)
 class UHapticAsset : public UObject
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
 	
 public:
 	enum class EAssetType { Sequence, Pattern, Experience};
-
-public:
 	
 	FJsonObject RawData;
 	EAssetType AssetType;

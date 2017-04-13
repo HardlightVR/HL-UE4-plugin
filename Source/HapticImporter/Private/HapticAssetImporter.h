@@ -6,10 +6,12 @@
 #include "PlatformFilemanager.h"
 #include "GenericPlatformFile.h"
 #include "UHapticAsset.h"
-
+#include "FEffectStruct.h"
 #include "Runtime/Json/Public/Dom/JsonObject.h"
 
 class UHapticSequence;
+class UHapticPattern;
+class UHapticExperience;
 class UHapticAssetFactory;
 class FHapticAssetImporter
 {
@@ -21,6 +23,7 @@ public:
 	bool PerformImport(UObject* InParent, FName Name, EObjectFlags Flags, UHapticAsset** HapticAsset);
 private:
 	bool Import(TSharedPtr<FJsonObject> HapticDescriptorObject, const FString& NameForErrors);
+	bool ParseSequence(UHapticSequence* sequence);
 	UHapticAsset::EAssetType AssetType;
 	FString RootKey;
 	FJsonObject RawData;
@@ -32,4 +35,8 @@ private:
 	bool ImportSequence(UHapticAsset** HapticAsset);
 	bool ImportPattern(UHapticAsset** HapticAsset);
 	bool ImportExperience(UHapticAsset** HapticAsset);
+	int32 ParseArea(const FString& areaString);
+
+	TMap<FString, EEffects> EffectsMap;
+	TMap<FString, int32> AreasMap;
 };

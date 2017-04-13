@@ -11,10 +11,10 @@
 
 
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, MinimalAPI)
 class UHapticSequence : public UHapticAsset
 {
-	GENERATED_UCLASS_BODY()
+	GENERATED_BODY()
 	
 public:
 	

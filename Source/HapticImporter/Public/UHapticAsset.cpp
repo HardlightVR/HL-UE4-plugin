@@ -4,9 +4,6 @@
 #include "UHapticAsset.h"
 
 
-UHapticAsset::UHapticAsset(const FObjectInitializer& ObjectInitializer) :Super(ObjectInitializer) {
-
-}
 
 void UHapticAsset::PopulateDataFromJson()
 {

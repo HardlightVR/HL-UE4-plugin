@@ -13,6 +13,8 @@
 
 class UHapticSequence; 
 class UPlaybackHandle;
+class UHapticPattern;
+
 UENUM(BlueprintType)
 enum class HapticFileType : uint8
 {
@@ -31,6 +33,10 @@ class UHapticBlueprintLibrary : public UBlueprintFunctionLibrary
 public:
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
 	static UPlaybackHandle* CreateHandle(int32 area, UHapticSequence* seq);
+
+	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+		static UPlaybackHandle* CreateHandle2(UHapticPattern* pat);
+
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
 		static bool PlayTestRoutine();
 
