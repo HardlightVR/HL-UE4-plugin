@@ -17,8 +17,7 @@ class UHapticSequence : public UHapticAsset
 	GENERATED_UCLASS_BODY()
 	
 public:
-	UPROPERTY(EditAnywhere, Category = Data)
-	float Time;
+	
 
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Bitmask, BitmaskEnum = "EAreaFlags"), Category = Data)
 	//int32 Area;

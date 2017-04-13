@@ -7,7 +7,6 @@
 #include "PlatformFilemanager.h"
 #include "GenericPlatformFile.h"
 #include "Runtime/Core/Public/Templates/UniquePtr.h"
-#include "FHapticTypeActions.h"
 #include "Runtime/Core/Public/Templates/SharedPointer.h"
 class FHapticImporterModule : public IModuleInterface
 {
@@ -28,5 +27,7 @@ public:
 	}
 private:
 	TSharedRef<IAssetTypeActions> m_assetActions;
+	TSharedRef<IAssetTypeActions> m_sequenceActions;
+	TSharedRef<IAssetTypeActions> m_experienceActions;
 
 };

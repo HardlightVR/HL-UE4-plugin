@@ -6,10 +6,13 @@
 #include "UHapticAssetFactory.h"
 #include "UHapticSequence.h"
 #include "UHapticPattern.h"
+#include "UHapticExperience.h"
 #include "IAssetTools.h"
 #include "AssetToolsModule.h"
+#include "Editor/UnrealEd/Public/ObjectTools.h"
 #include "AssetRegistryModule.h"
 #include "Json.h"
+
 
 
 TSharedPtr<class FJsonObject> ReadObject(TSharedPtr<class FJsonObject> Item, const FString& Key)
@@ -106,59 +109,222 @@ bool FHapticAssetImporter::Import(TSharedPtr<FJsonObject> HapticDescriptorObject
 	}
 	return bLoadedSuccessfully;
 }
+
+bool FHapticAssetImporter::ImportSequence(UHapticAsset** HapticAsset)
+{
+	*HapticAsset = *ImportedSequences.Find(RootKey);
+	return true;
+}
+
+bool FHapticAssetImporter::ImportPattern(UHapticAsset** HapticAsset)
+{
+	*HapticAsset = *ImportedPatterns.Find(RootKey);
+	return true;
+}
+
+bool FHapticAssetImporter::ImportExperience(UHapticAsset** HapticAsset)
+{
+	*HapticAsset = *ImportedExperiences.Find(RootKey);
+	return true;
+}
+
 bool FHapticAssetImporter::ImportFromString(const FString& FileContents, const FString& NameForErrors)
 {
 	TSharedPtr<FJsonObject> HapticDescriptorObject = ParseJSON(FileContents, NameForErrors);
 	return HapticDescriptorObject.IsValid() && Import(HapticDescriptorObject, NameForErrors);
 }
 
+UHapticSequence* CreateNewSequence(FString key, UObject* InParent, EObjectFlags Flags) {
+	const FString SanitizeName = ObjectTools::SanitizeObjectName(key);
+	UHapticSequence* Result = NewObject<UHapticSequence>(InParent, FName(*SanitizeName), Flags);
+	Result->AssetType = UHapticAsset::EAssetType::Sequence;
+	return Result;
+}
+
+UHapticPattern* CreateNewPattern(FString key, UObject* InParent, EObjectFlags Flags) {
+	const FString SanitizeName = ObjectTools::SanitizeObjectName(key);
+	UHapticPattern* Result = NewObject<UHapticPattern>(InParent, FName(*SanitizeName), Flags);
+	Result->AssetType = UHapticAsset::EAssetType::Pattern;
+	return Result;
+}
+UHapticExperience* CreateNewExperience(FString key, UObject* InParent, EObjectFlags Flags) {
+	const FString SanitizeName = ObjectTools::SanitizeObjectName(key);
+	UHapticExperience* Result = NewObject<UHapticExperience>(InParent, FName(*SanitizeName), Flags);
+	Result->AssetType = UHapticAsset::EAssetType::Experience;
+	return Result;
+}
 bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectFlags Flags, UHapticAsset** HapticAsset)
 {
-	FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
+	//Todo: Just refactor this. Import everything in the HDF, because it's needed: it's in the HDF.
 
-	if (AssetType == UHapticAsset::EAssetType::Sequence) {
-		*HapticAsset = NewObject<UHapticSequence>(InParent, Name, Flags);
-		(*HapticAsset)->AssetType = AssetType;
-		(*HapticAsset)->RawData = RawData;
-		(*HapticAsset)->EffectName = RootKey;
-		return true;
-	}
-	else if (AssetType == UHapticAsset::EAssetType::Pattern) {
-		auto patternParent = NewObject<UHapticPattern>(InParent, Name, Flags);
-		patternParent->AssetType = UHapticAsset::EAssetType::Pattern;
-		patternParent->RawData = RawData;
-		patternParent->EffectName = RootKey;
+	//pseudocode:
+	/*
 	
-		auto pattern_defs = RawData.GetObjectField("pattern_definitions")->GetArrayField(RootKey);
-		for (const auto& seq : pattern_defs) {
-			FString sequence_name = seq->AsObject()->GetStringField("sequence");
-			if (ImportedSequences.Contains(sequence_name)) {
-				patternParent->SequenceArray.Add(TAssetPtr<UHapticSequence>(*ImportedSequences.Find(sequence_name)));
-
-			}
-			else {
-				FString AssetName;
-				FString PackageName;
-				auto newSeq = NewObject<UHapticSequence>(InParent, FName("aadsad"), Flags);
-				FAssetRegistryModule::AssetCreated(newSeq);
-
-				newSeq->Modify();
-
-				newSeq->AssetType = UHapticAsset::EAssetType::Sequence;
-				newSeq->RawData = RawData;
-				newSeq->EffectName = sequence_name;
-				newSeq->PopulateDataFromJson();
-				patternParent->SequenceArray.Add(TAssetPtr<UHapticSequence>(newSeq));
-				ImportedSequences.Add(sequence_name, newSeq);
-				newSeq->PostEditChange();
-			
-			}
-			
+	foreach (sequence in sequence_definitions) {
+		if (!Imported(sequence)){
+			Create(sequence)
 		}
-		*HapticAsset = patternParent;
-		return true;
-		
 	}
 
-	return false;
+	foreach (pattern in pattern_definitions) {
+		if (!Imported(pattern)){
+			Create(pattern)
+		}
+	}
+
+	foreach (experience in experience_definitions) {
+		if (!Imported(experience)){
+			Create(experience)
+		}
+	}
+
+	switch (experienceType) {
+	case Sequence:
+		return ImportSequence(HapticAsset);
+	case Pattern:
+		return ImportPattern(HapticAsset);
+	case Experience:
+		return ImportExperience(HapticAsset);
+	default:
+		return false;
+	}
+	*/
+
+
+	const auto& SequenceDefinitions = RawData.GetObjectField("sequence_definitions");
+	const auto& PatternDefinitions = RawData.GetObjectField("pattern_definitions");
+	const auto& ExperienceDefinitions = RawData.GetObjectField("experience_definitions");
+	for (const auto& sequence : SequenceDefinitions->Values) {
+		if (!ImportedSequences.Contains(sequence.Key)) {
+			UHapticSequence* NewSequence = CreateNewSequence(sequence.Key, InParent, Flags);
+			NewSequence->RawData = RawData;
+			NewSequence->PopulateDataFromJson();
+			NewSequence->EffectName = sequence.Key;
+			ImportedSequences.Add(sequence.Key, NewSequence);
+		}
+	}
+
+	for (const auto& pattern : PatternDefinitions->Values) {
+		if (!ImportedPatterns.Contains(pattern.Key)) {
+			UHapticPattern* NewPattern = CreateNewPattern(pattern.Key, InParent, Flags);
+			NewPattern->RawData = RawData;
+			NewPattern->PopulateDataFromJson();
+			NewPattern->EffectName = pattern.Key;
+			ImportedPatterns.Add(pattern.Key, NewPattern);
+		}
+	}
+
+	for (const auto& experience : ExperienceDefinitions->Values) {
+		if (!ImportedExperiences.Contains(experience.Key)) {
+			UHapticExperience* NewExperience = CreateNewExperience(experience.Key, InParent, Flags);
+			NewExperience->RawData = RawData;
+			NewExperience->PopulateDataFromJson();
+
+			NewExperience->EffectName = experience.Key;
+			ImportedExperiences.Add(experience.Key, NewExperience);
+		}
+	}
+
+	switch (AssetType) {
+	case UHapticAsset::EAssetType::Sequence:
+		return ImportSequence(HapticAsset);
+	case UHapticAsset::EAssetType::Pattern:
+		return ImportPattern(HapticAsset);
+	case UHapticAsset::EAssetType::Experience:
+		return ImportExperience(HapticAsset);
+	default:
+		return false;
+	}
+
+
+	//FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
+
+	//if (AssetType == UHapticAsset::EAssetType::Sequence) {
+	//	const FString SanitizedSequenceName = ObjectTools::SanitizeObjectName(RootKey);
+
+	//	*HapticAsset = NewObject<UHapticSequence>(InParent, FName(*SanitizedSequenceName), Flags);
+	//	(*HapticAsset)->AssetType = AssetType;
+	//	(*HapticAsset)->RawData = RawData;
+	//	(*HapticAsset)->EffectName = RootKey;
+	//	return true;
+	//}
+	//else if (AssetType == UHapticAsset::EAssetType::Pattern) {
+
+	//	const FString SanitizedPatternName = ObjectTools::SanitizeObjectName(RootKey);
+
+	//	auto patternParent = NewObject<UHapticPattern>(InParent,FName(*SanitizedPatternName), Flags);
+	//	patternParent->AssetType = UHapticAsset::EAssetType::Pattern;
+	//	patternParent->RawData = RawData;
+	//	patternParent->EffectName = RootKey;
+	//
+	//	auto pattern_defs = RawData.GetObjectField("pattern_definitions")->GetArrayField(RootKey);
+	//	for (const auto& seq : pattern_defs) {
+	//		FString sequence_name = seq->AsObject()->GetStringField("sequence");
+	//		if (ImportedSequences.Contains(sequence_name)) {
+	//			patternParent->SequenceArray.Add(TAssetPtr<UHapticSequence>(*ImportedSequences.Find(sequence_name)));
+	//			
+	//		}
+	//		else {
+	//			const FString SanitizedSequenceName = ObjectTools::SanitizeObjectName(sequence_name);
+
+	//			auto newSeq = NewObject<UHapticSequence>(InParent, FName(*SanitizedSequenceName), Flags);
+	//			FAssetRegistryModule::AssetCreated(newSeq);
+
+	//			newSeq->Modify();
+
+	//			newSeq->AssetType = UHapticAsset::EAssetType::Sequence;
+	//			newSeq->RawData = RawData;
+	//			newSeq->EffectName = sequence_name;
+	//			newSeq->PopulateDataFromJson();
+	//			patternParent->SequenceArray.Add(TAssetPtr<UHapticSequence>(newSeq));
+	//			ImportedSequences.Add(sequence_name, newSeq);
+	//			newSeq->PostEditChange();
+	//		
+	//		}
+	//		
+	//	}
+	//	*HapticAsset = patternParent;
+	//	return true;
+	//	
+	//}
+	//else if (AssetType == UHapticAsset::EAssetType::Experience) {
+	//	const FString SanitizedExperienceName = ObjectTools::SanitizeObjectName(RootKey);
+
+	//	auto experienceParent = NewObject<UHapticExperience>(InParent, FName(*SanitizedExperienceName), Flags);
+	//	experienceParent->AssetType = UHapticAsset::EAssetType::Experience;
+	//	experienceParent->RawData = RawData;
+	//	experienceParent->EffectName = RootKey;
+
+	//	auto experience_defs = RawData.GetObjectField("experience_definitions")->GetArrayField(RootKey);
+	//	for (const auto& seq :experience_defs) {
+	//		FString pattern_name = seq->AsObject()->GetStringField("pattern");
+	//		if (ImportedPatterns.Contains(pattern_name)) {
+	//			experienceParent->PatternArray.Add(TAssetPtr<UHapticPattern>(*ImportedPatterns.Find(pattern_name)));
+
+	//		}
+	//		else {
+	//			
+	//			const FString SanitizedPatternName = ObjectTools::SanitizeObjectName(pattern_name);
+
+	//			auto newPat = NewObject<UHapticPattern>(InParent, FName(*SanitizedPatternName), Flags);
+	//			FAssetRegistryModule::AssetCreated(newPat);
+
+	//			newPat->Modify();
+
+	//			newPat->AssetType = UHapticAsset::EAssetType::Sequence;
+	//			newPat->RawData = RawData;
+	//			newPat->EffectName =pattern_name;
+	//			newPat->PopulateDataFromJson();
+	//			experienceParent->PatternArray.Add(TAssetPtr<UHapticPattern>(newPat));
+	//			ImportedPatterns.Add(pattern_name, newPat);
+	//			newPat->PostEditChange();
+
+	//		}
+
+	//	}
+	//	*HapticAsset = experienceParent;
+	//	return true;
+	//}
+
+	//return false;
 }

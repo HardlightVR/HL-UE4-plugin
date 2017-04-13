@@ -26,4 +26,10 @@ private:
 	FJsonObject RawData;
 
 	TMap<FString, UHapticSequence*> ImportedSequences;
+	TMap<FString, UHapticPattern*> ImportedPatterns;
+	TMap<FString, UHapticExperience*> ImportedExperiences;
+
+	bool ImportSequence(UHapticAsset** HapticAsset);
+	bool ImportPattern(UHapticAsset** HapticAsset);
+	bool ImportExperience(UHapticAsset** HapticAsset);
 };

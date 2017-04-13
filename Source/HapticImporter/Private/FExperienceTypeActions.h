@@ -7,7 +7,7 @@
 #include "GenericPlatformFile.h"
 #include "Developer/AssetTools/Public/AssetTypeActions_Base.h"
 #include "Runtime/Engine/Classes/EditorFramework/ThumbnailInfo.h"
-class FHapticTypeActions : public FAssetTypeActions_Base
+class FExperienceTypeActions : public FAssetTypeActions_Base
 {
 public:
 

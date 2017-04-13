@@ -26,9 +26,8 @@ UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle(int32  area, UHapticSeque
 	UE_LOG(LogTemp, Warning, TEXT("Value of area enum: %d"), area);
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
 
-	float seqTimeOffset = seq->Time;
 
-	EncodeSequence(seqTimeOffset, timeline, seq, area);
+	EncodeSequence(0, timeline, seq, area);
 
 
 	auto handle = NewObject<UPlaybackHandle>();

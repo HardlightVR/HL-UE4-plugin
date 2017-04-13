@@ -4,11 +4,12 @@
 #include "HapticImporterModule.h"
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
-#include "FHapticTypeActions.h"
 #include "Runtime/Core/Public/Misc/Paths.h"
 #include "Developer/AssetTools/Public/IAssetTools.h"
 #include "UHapticAssetFactory.h"
-#include "FHapticTypeActions.h"
+#include "FPatternTypeActions.h"
+#include "FExperienceTypeActions.h"
+#include "FSequenceTypeActions.h"
 #include "Editor/UnrealEd/Public/ObjectTools.h"
 #define LOCTEXT_NAMESPACE "FHapticImporterModule"
 
@@ -20,9 +21,10 @@ void FHapticImporterModule::StartupModule()
 	UE_LOG(LogTemp, Warning, TEXT("Startup Module for NSVR Importer Plugin"));
 	
 	IAssetTools& assetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
-	m_assetActions = MakeShareable(new FHapticTypeActions());
-	assetTools.RegisterAssetTypeActions(m_assetActions);
 
+	assetTools.RegisterAssetTypeActions(m_assetActions);
+	assetTools.RegisterAssetTypeActions(m_sequenceActions);
+	assetTools.RegisterAssetTypeActions(m_experienceActions);
 
 	
 }
@@ -32,9 +34,13 @@ void FHapticImporterModule::ShutdownModule()
 	UE_LOG(LogTemp, Warning, TEXT("Shutdown Module for NSVR Importer Plugin"));
 	IAssetTools& assetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
 	assetTools.UnregisterAssetTypeActions(m_assetActions);
+	assetTools.UnregisterAssetTypeActions(m_sequenceActions);
 }
 
-FHapticImporterModule::FHapticImporterModule(): m_assetActions(new FHapticTypeActions())
+FHapticImporterModule::FHapticImporterModule(): 
+	m_assetActions(new FPatternTypeActions())
+  , m_sequenceActions(new FSequenceTypeActions())
+  , m_experienceActions(new FExperienceTypeActions())
 {
 }
 
