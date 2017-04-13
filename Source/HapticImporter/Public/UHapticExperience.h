@@ -7,7 +7,7 @@
 #include "UObject/Object.h"
 #include "FEffectStruct.h"
 #include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
-#include "UHapticPattern.h"
+#include "FPatternPair.h"
 #include "UHapticAsset.h"
 #include "UHapticExperience.generated.h"
 
@@ -26,7 +26,7 @@ public:
 	//worry about parameterizing area later
 
 	UPROPERTY(EditAnywhere, Category = Data)
-	TArray<TAssetPtr<UHapticPattern>> PatternArray;
+	TArray<FPatternPair> PatternArray;
 
 private:
 	void DoPopulateFromJson() override;

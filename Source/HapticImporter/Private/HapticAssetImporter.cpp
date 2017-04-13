@@ -161,21 +161,13 @@ bool FHapticAssetImporter::ParseSequence(UHapticSequence* sequence) {
 		auto duration = obj->GetNumberField("duration");
 		auto strength = obj->GetNumberField("strength");
 		auto time = obj->GetNumberField("time");
-		sequence->EffectArray.Add(FEffectStruct(time, duration, strength, act));
+		sequence->EffectArray.Add(FEffectStruct(time, duration, strength, actualval));
 	}
 	return true;
 }
-bool FHapticAssetImporter::ImportSequence(UHapticAsset** HapticAsset)
-{
 
-	auto sequence = *ImportedSequences.Find(RootKey);
-	*HapticAsset = sequence;
-	return true;
-}
-
-bool FHapticAssetImporter::ImportPattern(UHapticAsset** HapticAsset)
+void FHapticAssetImporter::ParsePattern(UHapticPattern* pattern)
 {
-	auto pattern = *ImportedPatterns.Find(RootKey);
 	auto pattern_data = RawData.GetObjectField("pattern_definitions")->GetArrayField(pattern->EffectName);
 
 	for (const auto& node : pattern_data) {
@@ -187,16 +179,20 @@ bool FHapticAssetImporter::ImportPattern(UHapticAsset** HapticAsset)
 		//ADD STRENGTH
 		pattern->SequenceArray.Add(FSequencePair(Args, TAssetPtr<UHapticSequence>(*ImportedSequences.Find(seq_name))));
 	}
-
-	*HapticAsset = pattern;
-	return true;
 }
 
-bool FHapticAssetImporter::ImportExperience(UHapticAsset** HapticAsset)
+void FHapticAssetImporter::ParseExperience(UHapticExperience* experience)
 {
-	*HapticAsset = *ImportedExperiences.Find(RootKey);
-	return true;
+	auto experience_data = RawData.GetObjectField("experience_definitions")->GetArrayField(experience->EffectName);
+	for (const auto& node : experience_data) {
+		const auto& nodeObj = node->AsObject();
+		FPatternArgs Args;
+		Args.Time = nodeObj->GetNumberField("time");
+		const auto& pat_name = nodeObj->GetStringField("pattern");
+		experience->PatternArray.Add(FPatternPair(Args, TAssetPtr<UHapticPattern>(*ImportedPatterns.Find(pat_name))));
+	}
 }
+
 
 int32 FHapticAssetImporter::ParseArea(const FString& areaString)
 {
@@ -214,6 +210,7 @@ int32 FHapticAssetImporter::ParseArea(const FString& areaString)
 	return result;
 	
 }
+
 
 bool FHapticAssetImporter::ImportFromString(const FString& FileContents, const FString& NameForErrors)
 {
@@ -261,6 +258,7 @@ bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectF
 			UHapticPattern* NewPattern = CreateNewPattern(pattern.Key, InParent, Flags);
 			NewPattern->RawData = RawData;
 			NewPattern->EffectName = pattern.Key;
+			ParsePattern(NewPattern);
 			ImportedPatterns.Add(pattern.Key, NewPattern);
 		}
 	}
@@ -270,17 +268,21 @@ bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectF
 			UHapticExperience* NewExperience = CreateNewExperience(experience.Key, InParent, Flags);
 			NewExperience->RawData = RawData;
 			NewExperience->EffectName = experience.Key;
+			ParseExperience(NewExperience);
 			ImportedExperiences.Add(experience.Key, NewExperience);
 		}
 	}
 
 	switch (AssetType) {
 	case UHapticAsset::EAssetType::Sequence:
-		return ImportSequence(HapticAsset);
+		*HapticAsset = *ImportedSequences.Find(RootKey);
+		return true;
 	case UHapticAsset::EAssetType::Pattern:
-		return ImportPattern(HapticAsset);
+		*HapticAsset = *ImportedPatterns.Find(RootKey);
+		return true;
 	case UHapticAsset::EAssetType::Experience:
-		return ImportExperience(HapticAsset);
+		*HapticAsset = *ImportedExperiences.Find(RootKey);
+		return true;
 	default:
 		return false;
 	}

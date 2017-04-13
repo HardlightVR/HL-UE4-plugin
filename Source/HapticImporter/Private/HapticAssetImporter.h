@@ -32,11 +32,11 @@ private:
 	TMap<FString, UHapticPattern*> ImportedPatterns;
 	TMap<FString, UHapticExperience*> ImportedExperiences;
 
-	bool ImportSequence(UHapticAsset** HapticAsset);
-	bool ImportPattern(UHapticAsset** HapticAsset);
-	bool ImportExperience(UHapticAsset** HapticAsset);
+
 	int32 ParseArea(const FString& areaString);
 
 	TMap<FString, EEffects> EffectsMap;
 	TMap<FString, int32> AreasMap;
+	void ParsePattern(UHapticPattern* NewPattern);
+	void ParseExperience(UHapticExperience* NewExperience);
 };

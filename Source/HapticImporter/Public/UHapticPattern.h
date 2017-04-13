@@ -26,7 +26,6 @@ class UHapticPattern : public UHapticAsset
 public:
 	UPROPERTY(EditAnywhere, Category = Data)
 	float Time;
-	//worry about parameterizing area later
 	UPROPERTY(EditAnywhere, Category = Data)
 	TArray<FSequencePair> SequenceArray;
 
