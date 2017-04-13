@@ -2,7 +2,7 @@
 
 #include "HapticImporterPrivatePCH.h"
 #include "FHapticTypeActions.h"
-
+#include "UHapticAsset.h"
 FText FHapticTypeActions::GetName() const
 {
 	return NSLOCTEXT("AssetTypeActions", "AssetTypeActions_HapticAsset", "Haptic Asset");
@@ -15,8 +15,7 @@ FColor FHapticTypeActions::GetTypeColor() const
 
 UClass* FHapticTypeActions::GetSupportedClass() const
 {
-	//TODO: IMPLEMENT
-	return nullptr;
+	return UHapticAsset::StaticClass();
 }
 
 uint32 FHapticTypeActions::GetCategories() 

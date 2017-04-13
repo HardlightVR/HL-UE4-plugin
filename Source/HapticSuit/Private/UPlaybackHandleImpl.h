@@ -1,17 +1,17 @@
 #pragma once
+#include "CoreMinimal.h"
 
 #include "IPlaybackHandle.h"
 
 #include "NSLoader_fwds.h"
 
-class FPlaybackHandleImpl : public IPlaybackHandle {
+class UPlaybackHandleImpl :  public IPlaybackHandle {
 public:
 	void Play() override;
 	void Pause() override;
 	void Reset() override;
-	//assumes owernship
-	explicit FPlaybackHandleImpl(NSVR_PlaybackHandle* timeline);
-	~FPlaybackHandleImpl();
+	explicit UPlaybackHandleImpl(NSVR_Timeline* timeline);
+	~UPlaybackHandleImpl();
 private:
 	NSVR_PlaybackHandle* m_handle;
 };

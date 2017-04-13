@@ -6,13 +6,13 @@
 #include "UObject/ObjectMacros.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "CoreMinimal.h"
+#include "Runtime/Core/Public/Templates/SharedPointer.h"
+#include "IPlaybackHandle.h"
+#include "EAreaFlags.h"
 #include "HapticBlueprintLibrary.generated.h"
 
-//#include "HapticBlueprintLibrary.generated.h"
-
-//Comment from 2/2015 - might be the problem?
-//As for the header - only problem, you only need to define the.generated.h includes for headers that define USTRUCT, UCLASS, etc types.If defining a UCLASS in a header file, you MUST include a companion.cpp file for the header.If the header only defines USTRUCT(s) then you do not need to include a.cpp for it(same goes for UENUM types).
-
+class UHapticSequence; 
+class UPlaybackHandle;
 UENUM(BlueprintType)
 enum class HapticFileType : uint8
 {
@@ -29,6 +29,8 @@ class UHapticBlueprintLibrary : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 public:
+	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	static UPlaybackHandle* CreateHandle(int32 area, UHapticSequence* seq);
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
 		static bool PlayTestRoutine();
 

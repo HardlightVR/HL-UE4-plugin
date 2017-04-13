@@ -90,12 +90,12 @@ public class HapticSuit : ModuleRules
 
 
 		PrivateIncludePaths.AddRange(
-			new string[] { "HapticSuit/Private", "ThirdParty/include" }
+			new string[] { "HapticSuit/Private", "ThirdParty/include" , "HapticImporter/Public", "HapticImporter/Private"}
 			);
 
 
 		PublicDependencyModuleNames.AddRange(
-			new string[] { "Core", "CoreUObject", "Engine", "Projects" }
+			new string[] { "Core", "CoreUObject", "Engine", "Projects" , "HapticImporter" }
 			);
 
 		PrivateDependencyModuleNames.AddRange(

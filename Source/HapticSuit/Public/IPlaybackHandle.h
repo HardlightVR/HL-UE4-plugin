@@ -2,7 +2,8 @@
 
 
 
-class IPlaybackHandle {
+class IPlaybackHandle  {
+
 public:
 	virtual void Play() = 0;
 	virtual void Pause() = 0;

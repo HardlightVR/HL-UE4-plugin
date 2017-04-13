@@ -1,9 +1,39 @@
 #include "HapticSuitPrivatePCH.h"
 #include "HapticBlueprintLibrary.h"
+#include "UHapticSequence.h"
+#include "UPlaybackHandle.h"
+#include "UPlaybackHandleImpl.h"
 #include "FBasicHapticEvent.h"
+#include "NSLoader.h"
 bool UHapticBlueprintLibrary::IsConnectedToSuit()
 {
 	return FHapticSuitModule::Get().GetDeviceInfo(nullptr);
+
+}
+
+
+void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticSequence* seq, int area) {
+	for (const auto& item : seq->EffectArray) {
+		timeline->Add(FBasicHapticEvent(timeOffset + item.Time, item.Duration, item.Strength, (int)item.Effect, area));
+	}
+}
+
+//void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticPattern* pat) {
+
+///}
+UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle(int32  area, UHapticSequence* seq)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Value of area enum: %d"), area);
+	auto timeline = FHapticSuitModule::Get().CreateTimeline();
+
+	float seqTimeOffset = seq->Time;
+
+	EncodeSequence(seqTimeOffset, timeline, seq, area);
+
+
+	auto handle = NewObject<UPlaybackHandle>();
+	handle->ProvideHandleImplementation(timeline->Transmit());
+	return handle;
 
 }
 

@@ -93,7 +93,7 @@ public class HapticImporter : ModuleRules
 
 
 		PrivateIncludePaths.AddRange(
-			new string[] { "HapticImporter/Private" }
+			new string[] { "HapticImporter/Private", "HapticSuit/Public" }
 			);
 
 
@@ -102,7 +102,7 @@ public class HapticImporter : ModuleRules
 			);
 
 		PrivateDependencyModuleNames.AddRange(
-			new string[] { "Core", "CoreUObject", "Engine", "Projects", "AssetTools", "UnrealEd" }
+			new string[] { "Core", "CoreUObject", "Engine", "Projects", "AssetTools", "UnrealEd", "Json", "JsonUtilities" }
 			);
 
 		PrivateIncludePathModuleNames.AddRange(
