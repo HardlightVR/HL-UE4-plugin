@@ -102,7 +102,7 @@ public class HapticImporter : ModuleRules
 			);
 
 		PrivateDependencyModuleNames.AddRange(
-			new string[] { "Core", "CoreUObject", "Engine", "Projects", "AssetTools", "UnrealEd", "Json", "JsonUtilities" }
+			new string[] { "Core", "CoreUObject", "Engine", "Projects", "AssetTools", "UnrealEd", "Json", "JsonUtilities", "ContentBrowser" }
 			);
 
 		PrivateIncludePathModuleNames.AddRange(

@@ -12,7 +12,7 @@
 #include "UHapticExperience.generated.h"
 
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, MinimalAPI)
 class UHapticExperience : public UHapticAsset
 {
 	GENERATED_UCLASS_BODY()

@@ -13,6 +13,7 @@
 
 class UHapticSequence; 
 class UPlaybackHandle;
+class UHapticExperience;
 class UHapticPattern;
 
 UENUM(BlueprintType)
@@ -32,10 +33,13 @@ class UHapticBlueprintLibrary : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
-	static UPlaybackHandle* CreateHandle(int32 area, UHapticSequence* seq);
+	static UPlaybackHandle* CreateSequenceHandle(int32 area, UHapticSequence* seq);
 
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
-		static UPlaybackHandle* CreateHandle2(UHapticPattern* pat);
+		static UPlaybackHandle* CreatePatternHandle(UHapticPattern* pat);
+
+	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+		static UPlaybackHandle* CreateExperienceHandle(UHapticExperience* pat);
 
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
 		static bool PlayTestRoutine();

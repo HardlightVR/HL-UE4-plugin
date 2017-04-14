@@ -2,6 +2,7 @@
 #include "HapticBlueprintLibrary.h"
 #include "UHapticSequence.h"
 #include "UHapticPattern.h"
+#include "UHapticExperience.h"
 #include "UPlaybackHandle.h"
 #include "UPlaybackHandleImpl.h"
 #include "FBasicHapticEvent.h"
@@ -33,14 +34,20 @@ void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHap
 			UE_LOG(LogTemp, Warning, TEXT("The seq wasn't loaded"));
 
 		}
-		//EncodeSequence()
 	}
 }
 
-//void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticPattern* pat) {
+void EncodeExperience(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticExperience* exp)
+{
+	for (const auto& item : exp->PatternArray) {
+		auto patPtr = item.Pattern.Get();
+		if (patPtr != nullptr) {
+			EncodePattern(timeOffset + item.Args.Time, timeline, patPtr);
+		}
+	}
+}
 
-///}
-UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle(int32  area, UHapticSequence* seq)
+UPlaybackHandle* UHapticBlueprintLibrary::CreateSequenceHandle(int32  area, UHapticSequence* seq)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Value of area enum: %d"), area);
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
@@ -56,13 +63,26 @@ UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle(int32  area, UHapticSeque
 }
 
 
-UPlaybackHandle* UHapticBlueprintLibrary::CreateHandle2(UHapticPattern* pat)
+
+
+UPlaybackHandle* UHapticBlueprintLibrary::CreatePatternHandle(UHapticPattern* pat)
 {
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
 	EncodePattern(0, timeline, pat);
 	auto handle = NewObject<UPlaybackHandle>();
 	handle->ProvideHandleImplementation(timeline->Transmit());
 	return handle;
+
+}
+
+UPlaybackHandle* UHapticBlueprintLibrary::CreateExperienceHandle(UHapticExperience* exp)
+{
+	auto timeline = FHapticSuitModule::Get().CreateTimeline();
+	EncodeExperience(0, timeline, exp);
+	auto handle = NewObject<UPlaybackHandle>();
+	handle->ProvideHandleImplementation(timeline->Transmit());
+	return handle;
+
 }
 
 bool UHapticBlueprintLibrary::PlayTestRoutine() {

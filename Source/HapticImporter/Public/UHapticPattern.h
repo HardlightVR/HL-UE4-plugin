@@ -18,7 +18,7 @@
 
 
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, MinimalAPI)
 class UHapticPattern : public UHapticAsset
 {
 	GENERATED_UCLASS_BODY()

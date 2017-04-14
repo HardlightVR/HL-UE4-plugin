@@ -9,6 +9,7 @@
 #include "UHapticExperience.h"
 #include "IAssetTools.h"
 #include "AssetToolsModule.h"
+#include "UObject/UObjectGlobals.h"
 #include "Editor/UnrealEd/Public/ObjectTools.h"
 #include "AssetRegistryModule.h"
 #include "Json.h"
@@ -89,6 +90,17 @@ FHapticAssetImporter::FHapticAssetImporter()
 	AreasMap.Add("Upper_Ab_Right", (1 << 21));
 	AreasMap.Add("Mid_Ab_Right", (1 << 22));
 	AreasMap.Add("Lower_Ab_Right", (1 << 23));
+
+	/* Should support..? Unknown yet*/
+	AreasMap.Add("Forearm_Both", *AreasMap.Find("Forearm_Left") | *AreasMap.Find("Forearm_Right"));
+	AreasMap.Add("Upper_Arm_Both", *AreasMap.Find("Upper_Arm_Left") | *AreasMap.Find("Upper_Arm_Right"));
+	AreasMap.Add("Shoulder_Both", *AreasMap.Find("Shoulder_Left") | *AreasMap.Find("Shoulder_Right"));
+	AreasMap.Add("Back_Both", *AreasMap.Find("Back_Left") | *AreasMap.Find("Back_Right"));
+	AreasMap.Add("Chest_Both", *AreasMap.Find("Chest_Left") | *AreasMap.Find("Chest_Right"));
+	AreasMap.Add("Upper_Ab_Both", *AreasMap.Find("Upper_Ab_Left") | *AreasMap.Find("Upper_Ab_Right"));
+	AreasMap.Add("Mid_Ab_Both", *AreasMap.Find("Mid_Ab_Left") | *AreasMap.Find("Mid_Ab_Right"));
+	AreasMap.Add("Lower_Ab_Both", *AreasMap.Find("Lower_Ab_Left") | *AreasMap.Find("Lower_Ab_Right"));
+
 }
 
 bool ParseMetaBlock(TSharedPtr<FJsonObject>& HapticDescriptorObject, const FString& NameForErrors)
@@ -239,6 +251,13 @@ UHapticExperience* CreateNewExperience(FString key, UObject* InParent, EObjectFl
 }
 bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectFlags Flags, UHapticAsset** HapticAsset)
 {
+
+	/*UPackage* HapticsPackage = CreatePackage(InParent, TEXT("Haptics"));
+	UPackage* PatternPackage = CreatePackage(HapticsPackage, TEXT("patterns"));
+	UPackage* SequencePackage = CreatePackage(HapticsPackage, TEXT("sequences"));
+	UPackage* ExperiencePackage = CreatePackage(HapticsPackage, TEXT("experiences"));*/
+
+
 	const auto& SequenceDefinitions = RawData.GetObjectField("sequence_definitions");
 	const auto& PatternDefinitions = RawData.GetObjectField("pattern_definitions");
 	const auto& ExperienceDefinitions = RawData.GetObjectField("experience_definitions");
