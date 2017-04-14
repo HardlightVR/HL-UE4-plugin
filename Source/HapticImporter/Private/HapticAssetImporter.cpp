@@ -101,6 +101,10 @@ FHapticAssetImporter::FHapticAssetImporter()
 	AreasMap.Add("Mid_Ab_Both", *AreasMap.Find("Mid_Ab_Left") | *AreasMap.Find("Mid_Ab_Right"));
 	AreasMap.Add("Lower_Ab_Both", *AreasMap.Find("Lower_Ab_Left") | *AreasMap.Find("Lower_Ab_Right"));
 
+	AreasMap.Add("Left_All",  0x000000FF);
+	AreasMap.Add("Right_All", 0x00FF0000);
+	AreasMap.Add("All_Areas", *AreasMap.Find("Left_All") | *AreasMap.Find("Right_All"));
+
 }
 
 bool ParseMetaBlock(TSharedPtr<FJsonObject>& HapticDescriptorObject, const FString& NameForErrors)
