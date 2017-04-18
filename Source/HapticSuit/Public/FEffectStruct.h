@@ -6,9 +6,6 @@
 #include "UObject/ObjectMacros.h"
 #include "UObject/Object.h"
 #include "FEffectStruct.generated.h"
-
-
-
 UENUM(BlueprintType)
 enum class EEffects : uint8{
 	Bump = 1 UMETA(DisplayName = "Bump"),
@@ -24,9 +21,9 @@ enum class EEffects : uint8{
 };
 
 USTRUCT()
-struct FEffectStruct
+struct HAPTICSUIT_API FEffectStruct
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
 public:
 	

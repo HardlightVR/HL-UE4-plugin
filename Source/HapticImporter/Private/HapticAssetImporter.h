@@ -2,17 +2,18 @@
 
 #pragma once
 
-
+#include "CoreMinimal.h"
 #include "PlatformFilemanager.h"
 #include "GenericPlatformFile.h"
-#include "UHapticAsset.h"
-#include "FEffectStruct.h"
 #include "Runtime/Json/Public/Dom/JsonObject.h"
+#include "UHapticAsset.h" //for UHapticAsset** and EAssetType
+#include "FEffectStruct.h" //for EEffects
+
 
 class UHapticSequence;
 class UHapticPattern;
 class UHapticExperience;
-class UHapticAssetFactory;
+
 class FHapticAssetImporter
 {
 public:

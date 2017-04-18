@@ -15,23 +15,25 @@
 #define NSLOADER_API_VERSION ((NSLOADER_API_VERSION_MAJOR << 16) | NSLOADER_API_VERSION_MINOR)
 
 
+#define NSVR_RETURN(ReturnType) NSLOADER_API ReturnType __stdcall
+
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-	/* Primitives */
 
-	//System represents the NSVR plugin context. 
+	// System represents the NSVR plugin context. 
 	typedef struct NSVR_System_ NSVR_System;
 
-	//Events tell the hardware to do certain things, like play a haptic effect
+	// Events tell the hardware to do certain things, like play a haptic effect. 
 	typedef struct NSVR_Event_ NSVR_Event;
 
-	//Timelines are event containers, where each event has a specific time offset
+	// Timelines are event containers, where each event has a specific time offset. 
 	typedef struct NSVR_Timeline_ NSVR_Timeline;
 
-	//A PlaybackHandle is used to start, stop, reset timelines which have been transmitted to the system
+	// A PlaybackHandle is used to start, stop, and reset timelines which have been transmitted to the
+	// system. 
 	typedef struct NSVR_PlaybackHandle_ NSVR_PlaybackHandle;
 
 
@@ -54,6 +56,7 @@ extern "C" {
 		float y;
 		float z;
 	};
+
 
 	struct NSVR_TrackingUpdate {
 		NSVR_Quaternion chest;
@@ -92,55 +95,63 @@ extern "C" {
 		unsigned int ServiceMinor;
 	} NSVR_ServiceInfo;
 
-	//Creates a new instance of the system
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Create(NSVR_System** systemPtr);
+	
+	//Instantiates a new NSVR system context
+	NSVR_RETURN(NSVR_Result) NSVR_System_Create(NSVR_System** systemPtr);
 
-	//Destroys the system
-	NSLOADER_API void __stdcall NSVR_System_Release(NSVR_System** ptr);
+	//Returns true if this API supports the feature specified by a null-terminated string
+	NSVR_RETURN(int) NSVR_Version_HasFeature(const char* feature);
 
 	//Returns the version of this plugin, in the format ((Major << 16) | Minor)
-	NSLOADER_API unsigned int __stdcall NSVR_GetVersion(void);
-
+	NSVR_RETURN(unsigned int) NSVR_Version_Get(void);
+	
 	//Returns true if the plugin is compatible with this header, false otherwise
-	NSLOADER_API  int __stdcall NSVR_IsCompatibleDLL(void);
+	NSVR_RETURN(int) NSVR_Version_IsCompatibleDLL(void);
+
+	
+	NSVR_RETURN(void) NSVR_System_Release(NSVR_System** ptr);
+
+	
+
 
 	//Returns true if a suit is plugged in and the service is running, else false
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_GetServiceInfo(NSVR_System* systemPtr, NSVR_ServiceInfo* infoPtr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_GetServiceInfo(NSVR_System* systemPtr, NSVR_ServiceInfo* infoPtr);
 
 	/* Haptics engine */ 
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Haptics_Pause(NSVR_System* ptr);
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Haptics_Resume(NSVR_System* ptr);
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Haptics_Destroy(NSVR_System* ptr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_Haptics_Pause(NSVR_System* ptr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_Haptics_Resume(NSVR_System* ptr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_Haptics_Destroy(NSVR_System* ptr);
 
 
 	/* Devices */
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_GetDeviceInfo(NSVR_System* systemPtr, NSVR_DeviceInfo* infoPtr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_GetDeviceInfo(NSVR_System* systemPtr, NSVR_DeviceInfo* infoPtr);
 
 	/* Tracking */
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Tracking_Poll(NSVR_System* ptr, NSVR_TrackingUpdate* updatePtr);
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Tracking_Enable(NSVR_System* ptr);
-	NSLOADER_API NSVR_Result __stdcall NSVR_System_Tracking_Disable(NSVR_System* ptr);
-
+	NSVR_RETURN(NSVR_Result) NSVR_System_Tracking_Poll(NSVR_System* ptr, NSVR_TrackingUpdate* updatePtr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_Tracking_Enable(NSVR_System* ptr);
+	NSVR_RETURN(NSVR_Result) NSVR_System_Tracking_Disable(NSVR_System* ptr);
+	
+	
 
 	/* ---- Timeline API ---- */
 
 	/* Events */
-	NSLOADER_API NSVR_Result __stdcall NSVR_Event_Create(NSVR_Event** eventPtr, NSVR_EventType type);
-	NSLOADER_API void __stdcall NSVR_Event_Release(NSVR_Event** event);
-	NSLOADER_API NSVR_Result __stdcall NSVR_Event_SetFloat(NSVR_Event* event, const char* key, float value);
-	NSLOADER_API NSVR_Result __stdcall NSVR_Event_SetInteger(NSVR_Event* event, const char* key, int value);
+	NSVR_RETURN(NSVR_Result) NSVR_Event_Create(NSVR_Event** eventPtr, NSVR_EventType type);
+	NSVR_RETURN(void)		 NSVR_Event_Release(NSVR_Event** event);
+	NSVR_RETURN(NSVR_Result) NSVR_Event_SetFloat(NSVR_Event* event, const char* key, float value);
+	NSVR_RETURN(NSVR_Result) NSVR_Event_SetInteger(NSVR_Event* event, const char* key, int value);
 
 
 	/* Timelines */
-	NSLOADER_API NSVR_Result __stdcall NSVR_Timeline_Create(NSVR_Timeline** eventListPtr, NSVR_System* systemPtr);
-	NSLOADER_API void __stdcall NSVR_Timeline_Release(NSVR_Timeline** listPtr);
-	NSLOADER_API NSVR_Result __stdcall NSVR_Timeline_AddEvent(NSVR_Timeline* list, NSVR_Event* event);
-	NSLOADER_API NSVR_Result __stdcall NSVR_Timeline_Transmit(NSVR_Timeline* timeline, NSVR_PlaybackHandle* handlePr);
+	NSVR_RETURN(NSVR_Result) NSVR_Timeline_Create(NSVR_Timeline** eventListPtr, NSVR_System* systemPtr);
+	NSVR_RETURN(void)		 NSVR_Timeline_Release(NSVR_Timeline** listPtr);
+	NSVR_RETURN(NSVR_Result) NSVR_Timeline_AddEvent(NSVR_Timeline* list, NSVR_Event* event);
+	NSVR_RETURN(NSVR_Result) NSVR_Timeline_Transmit(NSVR_Timeline* timeline, NSVR_PlaybackHandle* handlePr);
 
 	/* Playback */
-	NSLOADER_API NSVR_Result __stdcall NSVR_PlaybackHandle_Create(NSVR_PlaybackHandle** handlePtr);
-	NSLOADER_API NSVR_Result __stdcall NSVR_PlaybackHandle_Command(NSVR_PlaybackHandle* handlePtr, NSVR_PlaybackCommand command);
-	NSLOADER_API void __stdcall NSVR_PlaybackHandle_Release(NSVR_PlaybackHandle** handlePtr);
+	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_Create(NSVR_PlaybackHandle** handlePtr);
+	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_Command(NSVR_PlaybackHandle* handlePtr, NSVR_PlaybackCommand command);
+	NSVR_RETURN(void)		 NSVR_PlaybackHandle_Release(NSVR_PlaybackHandle** handlePtr);
 
 
 

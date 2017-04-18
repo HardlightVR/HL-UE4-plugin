@@ -25,5 +25,5 @@ UPlaybackHandle* UPlaybackHandle::Stop()
 
 void UPlaybackHandle::ProvideHandleImplementation(TUniquePtr<IPlaybackHandle> handle)
 {
-	m_handle = std::move(handle);
+	m_handle = MoveTemp(handle);
 }

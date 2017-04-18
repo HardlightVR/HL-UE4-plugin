@@ -5,11 +5,9 @@
 
 #include "UObject/ObjectMacros.h"
 #include "UObject/Object.h"
-#include "Runtime/Json/Public/Dom/JsonObject.h"
 #include "UHapticAsset.generated.h"
 
-
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, MinimalAPI)
 class UHapticAsset : public UObject
 {
 	GENERATED_BODY()
@@ -17,13 +15,10 @@ class UHapticAsset : public UObject
 public:
 	enum class EAssetType { Sequence, Pattern, Experience};
 	
-	FJsonObject RawData;
 	EAssetType AssetType;
 
 	UPROPERTY(VisibleAnywhere, Category = Data)
 	FString EffectName;
 
-	void PopulateDataFromJson();
-private:
-	virtual void DoPopulateFromJson() {};
+
 };

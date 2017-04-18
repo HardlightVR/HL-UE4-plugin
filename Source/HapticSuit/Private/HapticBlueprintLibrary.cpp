@@ -17,6 +17,8 @@ bool UHapticBlueprintLibrary::IsConnectedToSuit()
 
 void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, const UHapticSequence* seq, int area) {
 	for (const auto& item : seq->EffectArray) {
+		UE_LOG(LogTemp, Warning, TEXT("Add effect: t=%.3f,  d=%.3f, s=%.3f, e=%d, a=%d"), timeOffset + item.Time, item.Duration, item.StaticStruct, (int)item.Effect, area);
+
 		timeline->Add(FBasicHapticEvent(timeOffset + item.Time, item.Duration, item.Strength, (int)item.Effect, area));
 	}
 }
@@ -27,7 +29,7 @@ void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHap
 		auto seqPtr = item.Sequence.Get();
 		if (seqPtr != nullptr) {
 			EncodeSequence(timeOffset + item.Args.Time, timeline, seqPtr, item.Args.Area);
-			UE_LOG(LogTemp, Warning, TEXT("Add seq at time %.4f, area %d"), timeOffset+item.Args.Time, item.Args.Area);
+			UE_LOG(LogTemp, Warning, TEXT("Add seq at time %.4f, area %d"), timeOffset + item.Args.Time, item.Args.Area);
 
 		}
 		else {
@@ -36,7 +38,9 @@ void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHap
 		}
 	}
 }
-
+void AddThing(float timeOffset, const TUniquePtr<ITimeline>& timeline) {
+	timeline->Add(FBasicHapticEvent(timeOffset, 0.2, 1.0, 666, 1048576));
+}
 void EncodeExperience(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticExperience* exp)
 {
 	for (const auto& item : exp->PatternArray) {
@@ -46,6 +50,8 @@ void EncodeExperience(float timeOffset, const TUniquePtr<ITimeline>& timeline, U
 		}
 	}
 }
+
+
 
 UPlaybackHandle* UHapticBlueprintLibrary::CreateSequenceHandle(int32  area, UHapticSequence* seq)
 {
@@ -77,11 +83,21 @@ UPlaybackHandle* UHapticBlueprintLibrary::CreatePatternHandle(UHapticPattern* pa
 
 UPlaybackHandle* UHapticBlueprintLibrary::CreateExperienceHandle(UHapticExperience* exp)
 {
+	if (exp == NULL) {
+		return NULL;
+	}
+
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
+
 	EncodeExperience(0, timeline, exp);
-	auto handle = NewObject<UPlaybackHandle>();
-	handle->ProvideHandleImplementation(timeline->Transmit());
-	return handle;
+
+	auto handle = timeline->Transmit();
+	
+	auto oHandle = NewObject<UPlaybackHandle>();
+	oHandle->ProvideHandleImplementation(MoveTemp(handle));
+
+
+	return oHandle;
 
 }
 
@@ -99,58 +115,4 @@ bool UHapticBlueprintLibrary::PlayTestRoutine() {
 bool UHapticBlueprintLibrary::IsConnectedToService() {
 	return FHapticSuitModule::Get().GetServiceInfo(nullptr);
 }
-bool UHapticBlueprintLibrary::PluginLoadedSuccessfully()
-{
-	return FHapticSuitModule::Get().PluginLoadedSuccessfully();
-}
 
-void UHapticBlueprintLibrary::ResetPlugin()
-{
-	//FHapticSuitModule::Get().ResetPlugin();
-}
-
-bool UHapticBlueprintLibrary::PlayHaptic(FString HapticEffectName, HapticFileType fileType, int32 Where)
-{
-	if (fileType == HapticFileType::Sequence)
-	{
-		return PlayHapticSequence(HapticEffectName, Where);
-	}
-	else if (fileType == HapticFileType::SequenceOnAll)
-	{
-		return PlayHapticSequenceOnAll(HapticEffectName);
-	}
-	else if (fileType == HapticFileType::Pattern)
-	{
-		return PlayHapticPattern(HapticEffectName);
-	}
-	else if (fileType == HapticFileType::Experience)
-	{
-		return PlayHapticExperience(HapticEffectName);
-	}
-	return false;
-}
-
-bool UHapticBlueprintLibrary::PlayHapticSequenceOnAll(FString HapticEffectName)
-{
-	return FHapticSuitModule::Get().LoadAndPlaySequenceOnAll(HapticEffectName);
-}
-
-bool UHapticBlueprintLibrary::PlayHapticSequence(FString HapticEffectName, int32 Where)
-{
-	return FHapticSuitModule::Get().LoadAndPlaySequence(HapticEffectName, Where);
-}
-
-bool UHapticBlueprintLibrary::PlayHapticPattern(FString HapticEffectName)
-{
-	return FHapticSuitModule::Get().LoadAndPlayPattern(HapticEffectName);
-}
-
-bool UHapticBlueprintLibrary::PlayHapticExperience(FString HapticEffectName)
-{
-	return FHapticSuitModule::Get().LoadAndPlayExperience(HapticEffectName);
-}
-
-void UHapticBlueprintLibrary::ClearAllHaptics()
-{
-	FHapticSuitModule::Get().ClearAllHaptics();
-}

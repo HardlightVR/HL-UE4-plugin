@@ -2,18 +2,20 @@
 
 #include "HapticImporterPrivatePCH.h"
 #include "HapticAssetImporter.h"
-#include "UHapticAsset.h"
-#include "UHapticAssetFactory.h"
+
 #include "UHapticSequence.h"
 #include "UHapticPattern.h"
 #include "UHapticExperience.h"
+
 #include "IAssetTools.h"
 #include "AssetToolsModule.h"
+
 #include "UObject/UObjectGlobals.h"
 #include "Editor/UnrealEd/Public/ObjectTools.h"
 #include "AssetRegistryModule.h"
-#include "Json.h"
 
+#include "Runtime/Json/Public/Serialization/JsonReader.h"
+#include "Runtime/Json/Public/Serialization/JsonSerializer.h"
 
 
 TSharedPtr<class FJsonObject> ReadObject(TSharedPtr<class FJsonObject> Item, const FString& Key)
@@ -269,7 +271,7 @@ bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectF
 	for (const auto& sequence : SequenceDefinitions->Values) {
 		if (!ImportedSequences.Contains(sequence.Key)) {
 			UHapticSequence* NewSequence = CreateNewSequence(sequence.Key, InParent, Flags);
-			NewSequence->RawData = RawData;
+		//	NewSequence->RawData = RawData;
 			NewSequence->EffectName = sequence.Key;
 			ParseSequence(NewSequence);
 			ImportedSequences.Add(sequence.Key, NewSequence);
@@ -279,7 +281,7 @@ bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectF
 	for (const auto& pattern : PatternDefinitions->Values) {
 		if (!ImportedPatterns.Contains(pattern.Key)) {
 			UHapticPattern* NewPattern = CreateNewPattern(pattern.Key, InParent, Flags);
-			NewPattern->RawData = RawData;
+		//	NewPattern->RawData = RawData;
 			NewPattern->EffectName = pattern.Key;
 			ParsePattern(NewPattern);
 			ImportedPatterns.Add(pattern.Key, NewPattern);
@@ -289,7 +291,7 @@ bool FHapticAssetImporter::PerformImport(UObject* InParent, FName Name, EObjectF
 	for (const auto& experience : ExperienceDefinitions->Values) {
 		if (!ImportedExperiences.Contains(experience.Key)) {
 			UHapticExperience* NewExperience = CreateNewExperience(experience.Key, InParent, Flags);
-			NewExperience->RawData = RawData;
+			//NewExperience->RawData = RawData;
 			NewExperience->EffectName = experience.Key;
 			ParseExperience(NewExperience);
 			ImportedExperiences.Add(experience.Key, NewExperience);

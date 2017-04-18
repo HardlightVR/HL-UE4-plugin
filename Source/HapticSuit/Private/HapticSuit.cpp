@@ -36,7 +36,8 @@ void FHapticSuitModule::StartupModule()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Startup Module for NSVR Plugin"));
 
-	if (!NSVR_IsCompatibleDLL()) {
+
+	if (!NSVR_Version_IsCompatibleDLL()) {
 		UE_LOG(LogTemp, Warning, TEXT("Will not initialize NSVR library, DLL is not compatible with headers"));
 
 		return;

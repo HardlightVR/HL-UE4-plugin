@@ -5,25 +5,25 @@
 
 #include "UObject/ObjectMacros.h"
 #include "UObject/Object.h"
-#include "FSequenceArgs.h"
-#include "UHapticSequence.h"
+#include "FPatternArgs.h"
+#include "UHapticPattern.h"
 #include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
-#include "FSequencePair.generated.h"
+#include "FPatternPair.generated.h"
 
 
 USTRUCT()
-struct FSequencePair
+struct  HAPTICSUIT_API FPatternPair
 {
 	GENERATED_BODY()
 
 public:
-	FSequencePair(FSequenceArgs args, TAssetPtr<UHapticSequence> seq);
-	FSequencePair() {}
+	FPatternPair(FPatternArgs args, TAssetPtr<UHapticPattern> seq);
+	FPatternPair() {}
 	UPROPERTY(EditAnywhere, Category = Data)
-	FSequenceArgs Args;
+	FPatternArgs Args;
 
 	UPROPERTY(EditAnywhere, Category = Data)
-	TAssetPtr<UHapticSequence> Sequence;
+	TAssetPtr<UHapticPattern> Pattern;
 	
 
 };

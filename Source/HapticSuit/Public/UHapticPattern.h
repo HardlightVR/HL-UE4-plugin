@@ -29,6 +29,5 @@ public:
 	UPROPERTY(EditAnywhere, Category = Data)
 	TArray<FSequencePair> SequenceArray;
 
-private:
-	void DoPopulateFromJson() override;
+
 };

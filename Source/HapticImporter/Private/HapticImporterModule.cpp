@@ -6,10 +6,9 @@
 #include "Modules/ModuleManager.h"
 #include "Runtime/Core/Public/Misc/Paths.h"
 #include "Developer/AssetTools/Public/IAssetTools.h"
-#include "UHapticAssetFactory.h"
 #include "FPatternTypeActions.h"
-#include "FExperienceTypeActions.h"
 #include "FSequenceTypeActions.h"
+#include "FExperienceTypeActions.h"
 #include "Editor/UnrealEd/Public/ObjectTools.h"
 #define LOCTEXT_NAMESPACE "FHapticImporterModule"
 

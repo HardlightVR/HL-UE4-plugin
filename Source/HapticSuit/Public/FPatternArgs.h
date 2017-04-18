@@ -10,7 +10,7 @@
 
 
 USTRUCT()
-struct FPatternArgs
+ struct HAPTICSUIT_API FPatternArgs
 {
 	GENERATED_BODY()
 

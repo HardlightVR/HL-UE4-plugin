@@ -15,6 +15,7 @@ FColor FExperienceTypeActions::GetTypeColor() const
 
 UClass* FExperienceTypeActions::GetSupportedClass() const
 {
+
 	return UHapticExperience::StaticClass();
 }
 

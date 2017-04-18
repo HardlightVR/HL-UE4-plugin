@@ -10,7 +10,6 @@
 #include "UHapticSequence.generated.h"
 
 
-
 UCLASS(Blueprintable, MinimalAPI)
 class UHapticSequence : public UHapticAsset
 {
@@ -26,7 +25,4 @@ public:
 	TArray<FEffectStruct> EffectArray;
 
 
-
-private:
-	void DoPopulateFromJson() override;
 };

@@ -6,7 +6,6 @@
 #include "Runtime/Core/Public/GenericPlatform/GenericPlatformFile.h"
 #include "Runtime/Core/Public/Misc/FileHelper.h"
 #include "HapticAssetImporter.h"
-#include "Json.h"
 #include "Editor/UnrealEd/Public/Editor.h"
 #include "Runtime/Core/Public/GenericPlatform/GenericPlatformProcess.h"
 
@@ -78,7 +77,6 @@ UObject* UHapticAssetFactory::FactoryCreateFile(UClass* Class, UObject* InParent
 
 			
 		}
-		HapticAsset->PopulateDataFromJson();
 		Result = HapticAsset;
 	}
 	 
@@ -117,7 +115,6 @@ UObject * UHapticAssetFactory::FactoryCreateText(UClass * InClass, UObject * InP
 
 
 		}
-		HapticAsset->PopulateDataFromJson();
 		FEditorDelegates::OnAssetPostImport.Broadcast(this, HapticAsset);
 
 		Result = HapticAsset;

@@ -17,6 +17,7 @@ FColor FSequenceTypeActions::GetTypeColor() const
 UClass* FSequenceTypeActions::GetSupportedClass() const
 {
 	return UHapticSequence::StaticClass();
+	
 }
 
 uint32 FSequenceTypeActions::GetCategories()

@@ -40,14 +40,7 @@ void FTimelineImpl::Add(const FBasicHapticEvent & timelineEvent)
 TUniquePtr<IPlaybackHandle> FTimelineImpl::Transmit()
 {
 	check(m_timeline != nullptr);
-	//NSVR_PlaybackHandle* handle;
-	//NSVR_PlaybackHandle_Create(&handle);
 
-	//NSVR_Timeline_Transmit(m_timeline, handle);
-
-	////-----v takes ownership 
-	//return TUniquePtr<IPlaybackHandle>(new UPlaybackHandleImpl(handle));
-	// TODO: pass back in handle
 	return TUniquePtr<IPlaybackHandle>(new UPlaybackHandleImpl(m_timeline));
 }
 

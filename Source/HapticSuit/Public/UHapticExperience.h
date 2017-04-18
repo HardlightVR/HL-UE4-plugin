@@ -8,7 +8,6 @@
 #include "FEffectStruct.h"
 #include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
 #include "FPatternPair.h"
-#include "UHapticAsset.h"
 #include "UHapticExperience.generated.h"
 
 
@@ -28,6 +27,4 @@ public:
 	UPROPERTY(EditAnywhere, Category = Data)
 	TArray<FPatternPair> PatternArray;
 
-private:
-	void DoPopulateFromJson() override;
 };
