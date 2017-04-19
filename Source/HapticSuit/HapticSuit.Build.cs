@@ -22,26 +22,31 @@ public class HapticSuit : ModuleRules
 		get { return Path.GetFullPath(Path.Combine(ModulePath, "../../Binaries/")); }
 	}
 
-	private string LibraryPath
-	{
-		get { return Path.GetFullPath(Path.Combine(ThirdPartyPath, "lib")); }
-	}
+	
 	public HapticSuit(TargetInfo Target)
 	{
-		
+
+	
+
 		PCHUsage = PCHUsageMode.NoSharedPCHs;
         MinFilesUsingPrecompiledHeaderOverride = 0; // or other larger numbers
        
 	
 		PublicIncludePaths.AddRange(
-			new string[] { "HapticSuit/Public" }
+			new string[] { "HapticSuit/Public"/*, Path.Combine(ThirdPartyPath, "NullSpaceVR", "include") */ }
 			);
 
 
+		
 		PrivateIncludePaths.AddRange(
-			new string[] { "HapticSuit/Private", "ThirdParty/include" }
+			new string[] { "HapticSuit/Private", Path.Combine(ThirdPartyPath, "NullSpaceVR", "include")}
 			);
 
+
+
+	//	string NvCameraSDKIncPath = ThirdPartyPath +  "/include/";
+		//PublicSystemIncludePaths.Add(NvCameraSDKIncPath);
+		//PublicLibraryPaths.Add(Path.Combine(ThirdPartyPath, "NullSpaceVR", "lib"));
 		if (UEBuildConfiguration.bBuildEditor)
 		{
 			//PublicDependencyModuleNames.Add("HapticImporter");
@@ -71,11 +76,27 @@ public class HapticSuit : ModuleRules
 			isLibrarySupported = true;
 
 			string PlatformString = (Target.Platform == UnrealTargetPlatform.Win64) ? "Win64" : "Win32";
+			string LibrariesPath = Path.Combine(ThirdPartyPath, "NullSpaceVR", "lib");
+			string fullLibPath = Path.Combine(LibrariesPath, PlatformString, "NSLoader.lib");
+			PublicAdditionalLibraries.Add(fullLibPath);
+			//Console.WriteLine("PublicAdditionalLibs: " + fullLibPath);
+			//PublicDelayLoadDLLs.Add("NSLoader.dll");
 
-			PublicAdditionalLibraries.Add(Path.Combine(LibraryPath, PlatformString, "NSLoader.lib"));
+			//var rtstr = LibraryPath + Target.Platform.ToString() + "/" + "NSLoader.dll";
+			//Console.WriteLine(rtstr);
+			//var rt = new RuntimeDependency(rtstr);
 
-			PublicDelayLoadDLLs.Add("NSLoader.dll");
-			RuntimeDependencies.Add(new RuntimeDependency("$(EngineDir)/Binaries/ThirdParty/NullSpaceVR/" + Target.Platform.ToString() + "/" + "NSLoader.dll"));
+			//if (Target.Platform == UnrealTargetPlatform.Win64)
+			//	{
+			//		PublicDelayLoadDLLs.Add("NSloader.dll");
+			//		RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(BinariesPath, "Win64", "NSLoader.dll")));
+			//	} else
+			//	{
+			//		PublicDelayLoadDLLs.Add("NSloader.dll");
+			//		RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(BinariesPath, "Win32", "NSLoader.dll")));
+			//	}
+
+			//}
 		}
 		else if (Target.Platform == UnrealTargetPlatform.Mac)
 		{
@@ -83,6 +104,13 @@ public class HapticSuit : ModuleRules
 			isLibrarySupported = false;
 
 
+		}
+
+		if (isLibrarySupported)
+		{
+			var incl = Path.Combine(ThirdPartyPath, "NullSpaceVR", "include");
+			Console.WriteLine("Adding the include path: " + incl);
+			PublicIncludePaths.Add(incl);
 		}
 
 		return isLibrarySupported;
