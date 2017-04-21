@@ -32,6 +32,22 @@ bool FHapticSuitModule::GetDeviceInfo(NSVR_DeviceInfo * infoPtr)
 	return NSVR_SUCCESS(NSVR_System_GetDeviceInfo(m_system, infoPtr));
 }
 
+bool FHapticSuitModule::PauseAllHaptics()
+{
+	return NSVR_SUCCESS(NSVR_System_Haptics_Pause(m_system));
+}
+
+bool FHapticSuitModule::ResumeAllHaptics()
+{
+	return NSVR_SUCCESS(NSVR_System_Haptics_Resume(m_system));
+
+}
+
+bool FHapticSuitModule::ClearAllHaptics()
+{
+	return NSVR_SUCCESS(NSVR_System_Haptics_Destroy(m_system));
+}
+
 void FHapticSuitModule::StartupModule()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Startup Module for NSVR Plugin"));
@@ -71,89 +87,6 @@ bool FHapticSuitModule::PluginLoadedSuccessfully()
 }
 
 
-
-bool FHapticSuitModule::LoadAndPlaySequenceOnAll(FString SequenceName)
-{
-	return true;
-	//return LoadAndPlaySequence(SequenceName, (int32)AreaFlag::All_Areas);
-}
-
-bool FHapticSuitModule::LoadAndPlaySequence(FString SequenceName, int32 Where)
-{
-	//bool loadedSuccessfully = NSVR_Load(Plugin, TCHAR_TO_ANSI(*SequenceName), FileType::Sequence);
-
-	////ensureMsgf(loadedSuccessfully, TEXT("Sequence [%s] loaded unsuccessfully: Check namespace, file name & JSON file contents"), SequenceName);
-	//if (!loadedSuccessfully)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("Sequence loaded unsuccessfully: Check namespace, file name & JSON file contents"));
-	//	return false;
-	//}
-	////Generate a unique handle for use with this sequence
-	//unsigned int handle = NSVR_GenHandle(Plugin);
-	////Communicate with the service to actually create the effect with the given handle
-	//bool createdSuccessfully = NSVR_CreateSequence(Plugin, handle, TCHAR_TO_ANSI(*SequenceName), (AreaFlag)Where);
-
-	////ensureMsgf(createdSuccessfully, TEXT("Sequence [%s] was loaded successfully but failed to create handle. Contact NullSpace VR's Software Team."), SequenceName);
-	//if (!createdSuccessfully)
-	//	return false;
-
-	//NSVR_HandleCommand(Plugin, handle, Command::PLAY);
-	return true;
-}
-
-bool FHapticSuitModule::LoadAndPlayExperience(FString ExperienceName)
-{
-	//bool loadedSuccessfully = NSVR_Load(Plugin, TCHAR_TO_ANSI(*ExperienceName), FileType::Experience);
-
-	//if (!loadedSuccessfully)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("Experience loaded unsuccessfully: Check namespace, file name & JSON file contents"));
-	//	return false;
-	//}
-
-	////Generate a unique handle for use with this sequence
-	//unsigned int handle = NSVR_GenHandle(Plugin);
-	////Communicate with the service to actually create the effect with the given handle
-	//bool createdSuccessfully = NSVR_CreateExperience(Plugin, handle, TCHAR_TO_ANSI(*ExperienceName));
-	////ensureMsgf(createdSuccessfully, TEXT("Sequence [%s] was loaded successfully but failed to create handle. Contact NullSpace VR's Software Team."), ExperienceName);
-	//if (!createdSuccessfully)
-	//	return false;
-
-	////Now play the effect!
-	//NSVR_HandleCommand(Plugin, handle, Command::PLAY);
-	return true;
-}
-
-bool FHapticSuitModule::LoadAndPlayPattern(FString PatternName)
-{
-	//bool loadedSuccessfully = NSVR_Load(Plugin, TCHAR_TO_ANSI(*PatternName), FileType::Pattern);
-
-	////UE_LOG(LogHapticPlugin, Log, TEXT(“Pattern [%s] loaded unsuccessfully: Check namespace, file & JSON file contents”), *PatternName);
-
-	//if (!loadedSuccessfully)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("Pattern loaded unsuccessfully: Check namespace, file name & JSON file contents"));
-	//	return false;
-	//}
-
-	////Generate a unique handle for use with this sequence
-	//unsigned int handle = NSVR_GenHandle(Plugin);
-	////Communicate with the service to actually create the effect with the given handle
-	//bool createdSuccessfully = NSVR_CreatePattern(Plugin, handle, TCHAR_TO_ANSI(*PatternName));
-
-	////ensureMsgf(createdSuccessfully, TEXT("Sequence [%s] was loaded successfully but failed to create handle. Contact NullSpace VR's Software Team."), PatternName);
-	//if (!createdSuccessfully)
-	//	return false;
-
-	////Now play the effect!
-	//NSVR_HandleCommand(Plugin, handle, Command::PLAY);
-	return true;
-}
-
-void FHapticSuitModule::ClearAllHaptics()
-{
-	/*NSVR_EngineCommand(Plugin, EngineCommand::CLEAR_ALL);*/
-}
 
 
 

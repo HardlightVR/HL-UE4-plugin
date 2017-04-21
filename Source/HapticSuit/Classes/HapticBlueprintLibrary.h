@@ -51,5 +51,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
 		static bool IsConnectedToSuit();
 
+	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+		static bool PauseAllHaptics();
+	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+		static bool ResumeAllHaptics();
+	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+		static bool ClearAllHaptics();
+
 };
 

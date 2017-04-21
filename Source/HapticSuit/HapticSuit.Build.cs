@@ -79,24 +79,7 @@ public class HapticSuit : ModuleRules
 			string LibrariesPath = Path.Combine(ThirdPartyPath, "NullSpaceVR", "lib");
 			string fullLibPath = Path.Combine(LibrariesPath, PlatformString, "NSLoader.lib");
 			PublicAdditionalLibraries.Add(fullLibPath);
-			//Console.WriteLine("PublicAdditionalLibs: " + fullLibPath);
-			//PublicDelayLoadDLLs.Add("NSLoader.dll");
-
-			//var rtstr = LibraryPath + Target.Platform.ToString() + "/" + "NSLoader.dll";
-			//Console.WriteLine(rtstr);
-			//var rt = new RuntimeDependency(rtstr);
-
-			//if (Target.Platform == UnrealTargetPlatform.Win64)
-			//	{
-			//		PublicDelayLoadDLLs.Add("NSloader.dll");
-			//		RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(BinariesPath, "Win64", "NSLoader.dll")));
-			//	} else
-			//	{
-			//		PublicDelayLoadDLLs.Add("NSloader.dll");
-			//		RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(BinariesPath, "Win32", "NSLoader.dll")));
-			//	}
-
-			//}
+			
 		}
 		else if (Target.Platform == UnrealTargetPlatform.Mac)
 		{

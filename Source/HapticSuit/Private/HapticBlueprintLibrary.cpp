@@ -14,6 +14,25 @@ bool UHapticBlueprintLibrary::IsConnectedToSuit()
 
 }
 
+bool UHapticBlueprintLibrary::PauseAllHaptics()
+{
+	return FHapticSuitModule::Get().PauseAllHaptics();
+
+}
+
+
+bool UHapticBlueprintLibrary::ResumeAllHaptics()
+{
+	return FHapticSuitModule::Get().ResumeAllHaptics();
+}
+
+bool UHapticBlueprintLibrary::ClearAllHaptics()
+{
+	return FHapticSuitModule::Get().ClearAllHaptics();
+
+}
+
+
 
 void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, const UHapticSequence* seq, int area) {
 	for (const auto& item : seq->EffectArray) {
@@ -25,8 +44,8 @@ void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, con
 
 void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticPattern* pat)
 {
-	for (const auto& item : pat->SequenceArray) {
-		auto seqPtr = item.Sequence.Get();
+	for (auto& item : pat->SequenceArray) {
+		auto seqPtr = item.Sequence.LoadSynchronous();
 		if (seqPtr != nullptr) {
 			EncodeSequence(timeOffset + item.Args.Time, timeline, seqPtr, item.Args.Area);
 			UE_LOG(LogTemp, Warning, TEXT("Add seq at time %.4f, area %d"), timeOffset + item.Args.Time, item.Args.Area);
@@ -43,8 +62,8 @@ void AddThing(float timeOffset, const TUniquePtr<ITimeline>& timeline) {
 }
 void EncodeExperience(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHapticExperience* exp)
 {
-	for (const auto& item : exp->PatternArray) {
-		auto patPtr = item.Pattern.Get();
+	for (auto& item : exp->PatternArray) {
+		auto patPtr = item.Pattern.LoadSynchronous();
 		if (patPtr != nullptr) {
 			EncodePattern(timeOffset + item.Args.Time, timeline, patPtr);
 		}

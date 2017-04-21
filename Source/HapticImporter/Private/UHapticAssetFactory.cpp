@@ -111,7 +111,7 @@ UObject * UHapticAssetFactory::FactoryCreateText(UClass * InClass, UObject * InP
 		if (!Importer.PerformImport(InParent, InName, Flags, &HapticAsset))
 		{
 
-			UE_LOG(LogTemp, Warning, TEXT("Couldnt do step PerformImport"));
+			UE_LOG(LogTemp, Warning, TEXT("Failed to import haptic asset"));
 
 
 		}
