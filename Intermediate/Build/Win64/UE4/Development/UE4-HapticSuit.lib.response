@@ -1,0 +1,7 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+"C:\Users\Lucian Copeland\Documents\Unreal Projects\MyProject\Plugins\HapticSuit\Intermediate\Build\Win64\UE4\Development\HapticSuit\Module.HapticSuit.cpp.obj"
+"C:\Users\Lucian Copeland\Documents\Unreal Projects\MyProject\Plugins\HapticSuit\Intermediate\Build\Win64\UE4\Development\HapticSuit\HapticSuit.generated.cpp.obj"
+/OUT:"C:\Users\Lucian Copeland\Documents\Unreal Projects\MyProject\Plugins\HapticSuit\Binaries\Win64\UE4-HapticSuit.lib"
