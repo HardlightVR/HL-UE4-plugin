@@ -34,13 +34,13 @@ class UHapticBlueprintLibrary : public UBlueprintFunctionLibrary
 public:
 
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
-	static UPlaybackHandle* CreateSequenceHandle(int32 area, UHapticSequence* seq);
+	static UPlaybackHandle* CreateSequenceHandle(int32 area, UHapticSequence* sequence);
 
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
-		static UPlaybackHandle* CreatePatternHandle(UHapticPattern* pat);
+		static UPlaybackHandle* CreatePatternHandle(UHapticPattern* pattern);
 
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
-		static UPlaybackHandle* CreateExperienceHandle(UHapticExperience* pat);
+		static UPlaybackHandle* CreateExperienceHandle(UHapticExperience* experience);
 
 	UFUNCTION(BlueprintCallable, Category = HapticSuit)
 		static bool PlayTestRoutine();

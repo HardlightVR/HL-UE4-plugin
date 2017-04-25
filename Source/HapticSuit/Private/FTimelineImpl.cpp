@@ -30,7 +30,6 @@ void FTimelineImpl::Add(const FBasicHapticEvent & timelineEvent)
 	NSVR_Event_SetFloat(eventPtr, "time", timelineEvent.Time);
 	NSVR_Event_SetInteger(eventPtr, "effect", timelineEvent.Effect);
 	NSVR_Event_SetInteger(eventPtr, "area", timelineEvent.Area);
-	UE_LOG(LogTemp, Warning, TEXT("IN FTimeline: using area %d"), timelineEvent.Area);
 
 	NSVR_Timeline_AddEvent(m_timeline, eventPtr);
 	NSVR_Event_Release(&eventPtr);
