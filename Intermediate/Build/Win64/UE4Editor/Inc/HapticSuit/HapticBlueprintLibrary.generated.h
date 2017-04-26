@@ -6,163 +6,174 @@
 ===========================================================================*/
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-enum class HapticFileType : uint8;
+class UHapticExperience;
+class UPlaybackHandle;
+class UHapticPattern;
+class UHapticSequence;
 #ifdef HAPTICSUIT_HapticBlueprintLibrary_generated_h
 #error "HapticBlueprintLibrary.generated.h already included, missing '#pragma once' in HapticBlueprintLibrary.h"
 #endif
 #define HAPTICSUIT_HapticBlueprintLibrary_generated_h
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_RPC_WRAPPERS \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execClearAllHaptics) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		UHapticBlueprintLibrary::ClearAllHaptics(); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::ClearAllHaptics(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticExperience) \
+	DECLARE_FUNCTION(execResumeAllHaptics) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticExperience(Z_Param_HapticEffectName); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::ResumeAllHaptics(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticPattern) \
+	DECLARE_FUNCTION(execPauseAllHaptics) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticPattern(Z_Param_HapticEffectName); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PauseAllHaptics(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticSequence) \
+	DECLARE_FUNCTION(execIsConnectedToSuit) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Where); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticSequence(Z_Param_HapticEffectName,Z_Param_Where); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::IsConnectedToSuit(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticSequenceOnAll) \
+	DECLARE_FUNCTION(execIsConnectedToService) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticSequenceOnAll(Z_Param_HapticEffectName); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::IsConnectedToService(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHaptic) \
+	DECLARE_FUNCTION(execPlayTestRoutine) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
-		P_GET_ENUM(HapticFileType,Z_Param_fileType); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Where); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHaptic(Z_Param_HapticEffectName,HapticFileType(Z_Param_fileType),Z_Param_Where); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayTestRoutine(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execResetPlugin) \
+	DECLARE_FUNCTION(execCreateExperienceHandle) \
 	{ \
+		P_GET_OBJECT(UHapticExperience,Z_Param_experience); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		UHapticBlueprintLibrary::ResetPlugin(); \
+		*(UPlaybackHandle**)Z_Param__Result=UHapticBlueprintLibrary::CreateExperienceHandle(Z_Param_experience); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPluginLoadedSuccessfully) \
+	DECLARE_FUNCTION(execCreatePatternHandle) \
 	{ \
+		P_GET_OBJECT(UHapticPattern,Z_Param_pattern); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PluginLoadedSuccessfully(); \
+		*(UPlaybackHandle**)Z_Param__Result=UHapticBlueprintLibrary::CreatePatternHandle(Z_Param_pattern); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execCreateSequenceHandle) \
+	{ \
+		P_GET_PROPERTY(UIntProperty,Z_Param_area); \
+		P_GET_OBJECT(UHapticSequence,Z_Param_sequence); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(UPlaybackHandle**)Z_Param__Result=UHapticBlueprintLibrary::CreateSequenceHandle(Z_Param_area,Z_Param_sequence); \
 		P_NATIVE_END; \
 	}
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execClearAllHaptics) \
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		UHapticBlueprintLibrary::ClearAllHaptics(); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::ClearAllHaptics(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticExperience) \
+	DECLARE_FUNCTION(execResumeAllHaptics) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticExperience(Z_Param_HapticEffectName); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::ResumeAllHaptics(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticPattern) \
+	DECLARE_FUNCTION(execPauseAllHaptics) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticPattern(Z_Param_HapticEffectName); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PauseAllHaptics(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticSequence) \
+	DECLARE_FUNCTION(execIsConnectedToSuit) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Where); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticSequence(Z_Param_HapticEffectName,Z_Param_Where); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::IsConnectedToSuit(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHapticSequenceOnAll) \
+	DECLARE_FUNCTION(execIsConnectedToService) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHapticSequenceOnAll(Z_Param_HapticEffectName); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::IsConnectedToService(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPlayHaptic) \
+	DECLARE_FUNCTION(execPlayTestRoutine) \
 	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_HapticEffectName); \
-		P_GET_ENUM(HapticFileType,Z_Param_fileType); \
-		P_GET_PROPERTY(UIntProperty,Z_Param_Where); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayHaptic(Z_Param_HapticEffectName,HapticFileType(Z_Param_fileType),Z_Param_Where); \
+		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PlayTestRoutine(); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execResetPlugin) \
+	DECLARE_FUNCTION(execCreateExperienceHandle) \
 	{ \
+		P_GET_OBJECT(UHapticExperience,Z_Param_experience); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		UHapticBlueprintLibrary::ResetPlugin(); \
+		*(UPlaybackHandle**)Z_Param__Result=UHapticBlueprintLibrary::CreateExperienceHandle(Z_Param_experience); \
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execPluginLoadedSuccessfully) \
+	DECLARE_FUNCTION(execCreatePatternHandle) \
 	{ \
+		P_GET_OBJECT(UHapticPattern,Z_Param_pattern); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(bool*)Z_Param__Result=UHapticBlueprintLibrary::PluginLoadedSuccessfully(); \
+		*(UPlaybackHandle**)Z_Param__Result=UHapticBlueprintLibrary::CreatePatternHandle(Z_Param_pattern); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execCreateSequenceHandle) \
+	{ \
+		P_GET_PROPERTY(UIntProperty,Z_Param_area); \
+		P_GET_OBJECT(UHapticSequence,Z_Param_sequence); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(UPlaybackHandle**)Z_Param__Result=UHapticBlueprintLibrary::CreateSequenceHandle(Z_Param_area,Z_Param_sequence); \
 		P_NATIVE_END; \
 	}
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_INCLASS_NO_PURE_DECLS \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_INCLASS_NO_PURE_DECLS \
 	private: \
 	static void StaticRegisterNativesUHapticBlueprintLibrary(); \
 	friend HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticBlueprintLibrary(); \
@@ -173,7 +184,7 @@ enum class HapticFileType : uint8;
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_INCLASS \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_INCLASS \
 	private: \
 	static void StaticRegisterNativesUHapticBlueprintLibrary(); \
 	friend HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticBlueprintLibrary(); \
@@ -184,7 +195,7 @@ enum class HapticFileType : uint8;
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_STANDARD_CONSTRUCTORS \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UHapticBlueprintLibrary(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UHapticBlueprintLibrary) \
@@ -197,7 +208,7 @@ private: \
 public:
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_ENHANCED_CONSTRUCTORS \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UHapticBlueprintLibrary(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -210,32 +221,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHapticBlueprintLibrary); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UHapticBlueprintLibrary)
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_PRIVATE_PROPERTY_OFFSET
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_26_PROLOG
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_GENERATED_BODY_LEGACY \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_PRIVATE_PROPERTY_OFFSET
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_PROLOG
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_PRIVATE_PROPERTY_OFFSET \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_RPC_WRAPPERS \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_INCLASS \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_STANDARD_CONSTRUCTORS \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_PRIVATE_PROPERTY_OFFSET \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_RPC_WRAPPERS \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_INCLASS \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_GENERATED_BODY \
+#define Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_PRIVATE_PROPERTY_OFFSET \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_INCLASS_NO_PURE_DECLS \
-	HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_29_ENHANCED_CONSTRUCTORS \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_PRIVATE_PROPERTY_OFFSET \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_INCLASS_NO_PURE_DECLS \
+	Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h_32_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID HostProject_Plugins_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h
+#define CURRENT_FILE_ID Engine_Plugins_Runtime_HapticSuit_Source_HapticSuit_Classes_HapticBlueprintLibrary_h
 
 
 #define FOREACH_ENUM_HAPTICFILETYPE(op) \

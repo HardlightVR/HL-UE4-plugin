@@ -11,6 +11,146 @@
 PRAGMA_DISABLE_OPTIMIZATION
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCode1HapticSuit() {}
+	void UHapticAsset::StaticRegisterNativesUHapticAsset()
+	{
+	}
+	IMPLEMENT_CLASS(UHapticAsset, 2584346082);
+static class UEnum* EEffects_StaticEnum()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UEnum* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UEnum* Z_Construct_UEnum_HapticSuit_EEffects();
+		Singleton = GetStaticEnum(Z_Construct_UEnum_HapticSuit_EEffects, Z_Construct_UPackage__Script_HapticSuit(), TEXT("EEffects"));
+	}
+	return Singleton;
+}
+static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EEffects(EEffects_StaticEnum, TEXT("/Script/HapticSuit"), TEXT("EEffects"), false, nullptr, nullptr);
+class UScriptStruct* FEffectStruct::StaticStruct()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FEffectStruct();
+		extern HAPTICSUIT_API uint32 Get_Z_Construct_UScriptStruct_FEffectStruct_CRC();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FEffectStruct, Z_Construct_UPackage__Script_HapticSuit(), TEXT("EffectStruct"), sizeof(FEffectStruct), Get_Z_Construct_UScriptStruct_FEffectStruct_CRC());
+	}
+	return Singleton;
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FEffectStruct(FEffectStruct::StaticStruct, TEXT("/Script/HapticSuit"), TEXT("EffectStruct"), false, nullptr, nullptr);
+static struct FScriptStruct_HapticSuit_StaticRegisterNativesFEffectStruct
+{
+	FScriptStruct_HapticSuit_StaticRegisterNativesFEffectStruct()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("EffectStruct")),new UScriptStruct::TCppStructOps<FEffectStruct>);
+	}
+} ScriptStruct_HapticSuit_StaticRegisterNativesFEffectStruct;
+class UScriptStruct* FPatternArgs::StaticStruct()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FPatternArgs();
+		extern HAPTICSUIT_API uint32 Get_Z_Construct_UScriptStruct_FPatternArgs_CRC();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FPatternArgs, Z_Construct_UPackage__Script_HapticSuit(), TEXT("PatternArgs"), sizeof(FPatternArgs), Get_Z_Construct_UScriptStruct_FPatternArgs_CRC());
+	}
+	return Singleton;
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FPatternArgs(FPatternArgs::StaticStruct, TEXT("/Script/HapticSuit"), TEXT("PatternArgs"), false, nullptr, nullptr);
+static struct FScriptStruct_HapticSuit_StaticRegisterNativesFPatternArgs
+{
+	FScriptStruct_HapticSuit_StaticRegisterNativesFPatternArgs()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("PatternArgs")),new UScriptStruct::TCppStructOps<FPatternArgs>);
+	}
+} ScriptStruct_HapticSuit_StaticRegisterNativesFPatternArgs;
+static class UEnum* EAreaFlags_StaticEnum()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UEnum* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UEnum* Z_Construct_UEnum_HapticSuit_EAreaFlags();
+		Singleton = GetStaticEnum(Z_Construct_UEnum_HapticSuit_EAreaFlags, Z_Construct_UPackage__Script_HapticSuit(), TEXT("EAreaFlags"));
+	}
+	return Singleton;
+}
+static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EAreaFlags(EAreaFlags_StaticEnum, TEXT("/Script/HapticSuit"), TEXT("EAreaFlags"), false, nullptr, nullptr);
+class UScriptStruct* FSequenceArgs::StaticStruct()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FSequenceArgs();
+		extern HAPTICSUIT_API uint32 Get_Z_Construct_UScriptStruct_FSequenceArgs_CRC();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FSequenceArgs, Z_Construct_UPackage__Script_HapticSuit(), TEXT("SequenceArgs"), sizeof(FSequenceArgs), Get_Z_Construct_UScriptStruct_FSequenceArgs_CRC());
+	}
+	return Singleton;
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FSequenceArgs(FSequenceArgs::StaticStruct, TEXT("/Script/HapticSuit"), TEXT("SequenceArgs"), false, nullptr, nullptr);
+static struct FScriptStruct_HapticSuit_StaticRegisterNativesFSequenceArgs
+{
+	FScriptStruct_HapticSuit_StaticRegisterNativesFSequenceArgs()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("SequenceArgs")),new UScriptStruct::TCppStructOps<FSequenceArgs>);
+	}
+} ScriptStruct_HapticSuit_StaticRegisterNativesFSequenceArgs;
+	void UHapticSequence::StaticRegisterNativesUHapticSequence()
+	{
+	}
+	IMPLEMENT_CLASS(UHapticSequence, 2703703461);
+class UScriptStruct* FSequencePair::StaticStruct()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FSequencePair();
+		extern HAPTICSUIT_API uint32 Get_Z_Construct_UScriptStruct_FSequencePair_CRC();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FSequencePair, Z_Construct_UPackage__Script_HapticSuit(), TEXT("SequencePair"), sizeof(FSequencePair), Get_Z_Construct_UScriptStruct_FSequencePair_CRC());
+	}
+	return Singleton;
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FSequencePair(FSequencePair::StaticStruct, TEXT("/Script/HapticSuit"), TEXT("SequencePair"), false, nullptr, nullptr);
+static struct FScriptStruct_HapticSuit_StaticRegisterNativesFSequencePair
+{
+	FScriptStruct_HapticSuit_StaticRegisterNativesFSequencePair()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("SequencePair")),new UScriptStruct::TCppStructOps<FSequencePair>);
+	}
+} ScriptStruct_HapticSuit_StaticRegisterNativesFSequencePair;
+	void UHapticPattern::StaticRegisterNativesUHapticPattern()
+	{
+	}
+	IMPLEMENT_CLASS(UHapticPattern, 272424204);
+class UScriptStruct* FPatternPair::StaticStruct()
+{
+	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FPatternPair();
+		extern HAPTICSUIT_API uint32 Get_Z_Construct_UScriptStruct_FPatternPair_CRC();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FPatternPair, Z_Construct_UPackage__Script_HapticSuit(), TEXT("PatternPair"), sizeof(FPatternPair), Get_Z_Construct_UScriptStruct_FPatternPair_CRC());
+	}
+	return Singleton;
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FPatternPair(FPatternPair::StaticStruct, TEXT("/Script/HapticSuit"), TEXT("PatternPair"), false, nullptr, nullptr);
+static struct FScriptStruct_HapticSuit_StaticRegisterNativesFPatternPair
+{
+	FScriptStruct_HapticSuit_StaticRegisterNativesFPatternPair()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("PatternPair")),new UScriptStruct::TCppStructOps<FPatternPair>);
+	}
+} ScriptStruct_HapticSuit_StaticRegisterNativesFPatternPair;
+	void UHapticExperience::StaticRegisterNativesUHapticExperience()
+	{
+	}
+	IMPLEMENT_CLASS(UHapticExperience, 78861110);
 static class UEnum* HapticFileType_StaticEnum()
 {
 	extern HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
@@ -26,31 +166,439 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 	void UHapticBlueprintLibrary::StaticRegisterNativesUHapticBlueprintLibrary()
 	{
 		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "ClearAllHaptics",(Native)&UHapticBlueprintLibrary::execClearAllHaptics);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PlayHaptic",(Native)&UHapticBlueprintLibrary::execPlayHaptic);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PlayHapticExperience",(Native)&UHapticBlueprintLibrary::execPlayHapticExperience);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PlayHapticPattern",(Native)&UHapticBlueprintLibrary::execPlayHapticPattern);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PlayHapticSequence",(Native)&UHapticBlueprintLibrary::execPlayHapticSequence);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PlayHapticSequenceOnAll",(Native)&UHapticBlueprintLibrary::execPlayHapticSequenceOnAll);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PluginLoadedSuccessfully",(Native)&UHapticBlueprintLibrary::execPluginLoadedSuccessfully);
-		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "ResetPlugin",(Native)&UHapticBlueprintLibrary::execResetPlugin);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "CreateExperienceHandle",(Native)&UHapticBlueprintLibrary::execCreateExperienceHandle);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "CreatePatternHandle",(Native)&UHapticBlueprintLibrary::execCreatePatternHandle);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "CreateSequenceHandle",(Native)&UHapticBlueprintLibrary::execCreateSequenceHandle);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "IsConnectedToService",(Native)&UHapticBlueprintLibrary::execIsConnectedToService);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "IsConnectedToSuit",(Native)&UHapticBlueprintLibrary::execIsConnectedToSuit);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PauseAllHaptics",(Native)&UHapticBlueprintLibrary::execPauseAllHaptics);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "PlayTestRoutine",(Native)&UHapticBlueprintLibrary::execPlayTestRoutine);
+		FNativeFunctionRegistrar::RegisterFunction(UHapticBlueprintLibrary::StaticClass(), "ResumeAllHaptics",(Native)&UHapticBlueprintLibrary::execResumeAllHaptics);
 	}
-	IMPLEMENT_CLASS(UHapticBlueprintLibrary, 3090407258);
+	IMPLEMENT_CLASS(UHapticBlueprintLibrary, 3574546451);
+	void UPlaybackHandle::StaticRegisterNativesUPlaybackHandle()
+	{
+		FNativeFunctionRegistrar::RegisterFunction(UPlaybackHandle::StaticClass(), "Pause",(Native)&UPlaybackHandle::execPause);
+		FNativeFunctionRegistrar::RegisterFunction(UPlaybackHandle::StaticClass(), "Play",(Native)&UPlaybackHandle::execPlay);
+		FNativeFunctionRegistrar::RegisterFunction(UPlaybackHandle::StaticClass(), "Stop",(Native)&UPlaybackHandle::execStop);
+	}
+	IMPLEMENT_CLASS(UPlaybackHandle, 1450531133);
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
+	COREUOBJECT_API class UClass* Z_Construct_UClass_UObject();
 	ENGINE_API class UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticAsset_NoRegister();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticAsset();
+	HAPTICSUIT_API class UEnum* Z_Construct_UEnum_HapticSuit_EEffects();
+	HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FEffectStruct();
+	HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FPatternArgs();
+	HAPTICSUIT_API class UEnum* Z_Construct_UEnum_HapticSuit_EAreaFlags();
+	HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FSequenceArgs();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticSequence_NoRegister();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticSequence();
+	HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FSequencePair();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticPattern_NoRegister();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticPattern();
+	HAPTICSUIT_API class UScriptStruct* Z_Construct_UScriptStruct_FPatternPair();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticExperience_NoRegister();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticExperience();
 	HAPTICSUIT_API class UEnum* Z_Construct_UEnum_HapticSuit_HapticFileType();
 	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_ClearAllHaptics();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHaptic();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticExperience();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticPattern();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequence();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequenceOnAll();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PluginLoadedSuccessfully();
-	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_ResetPlugin();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_CreateExperienceHandle();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_CreatePatternHandle();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_CreateSequenceHandle();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToService();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToSuit();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PauseAllHaptics();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayTestRoutine();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_ResumeAllHaptics();
 	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticBlueprintLibrary_NoRegister();
 	HAPTICSUIT_API class UClass* Z_Construct_UClass_UHapticBlueprintLibrary();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UPlaybackHandle_Pause();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UPlaybackHandle_Play();
+	HAPTICSUIT_API class UFunction* Z_Construct_UFunction_UPlaybackHandle_Stop();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UPlaybackHandle_NoRegister();
+	HAPTICSUIT_API class UClass* Z_Construct_UClass_UPlaybackHandle();
 	HAPTICSUIT_API class UPackage* Z_Construct_UPackage__Script_HapticSuit();
+	UClass* Z_Construct_UClass_UHapticAsset_NoRegister()
+	{
+		return UHapticAsset::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UHapticAsset()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UObject();
+			Z_Construct_UPackage__Script_HapticSuit();
+			OuterClass = UHapticAsset::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20080080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_EffectName = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("EffectName"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(EffectName, UHapticAsset), 0x0010000000020001);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("BlueprintType"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UHapticAsset.h"));
+				MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("Public/UHapticAsset.h"));
+				MetaData->SetValue(NewProp_EffectName, TEXT("Category"), TEXT("Data"));
+				MetaData->SetValue(NewProp_EffectName, TEXT("ModuleRelativePath"), TEXT("Public/UHapticAsset.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UHapticAsset(Z_Construct_UClass_UHapticAsset, &UHapticAsset::StaticClass, TEXT("UHapticAsset"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UHapticAsset);
+	UEnum* Z_Construct_UEnum_HapticSuit_EEffects()
+	{
+		UPackage* Outer=Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UEnum_HapticSuit_EEffects_CRC();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EEffects"), 0, Get_Z_Construct_UEnum_HapticSuit_EEffects_CRC(), false);
+		if (!ReturnEnum)
+		{
+			ReturnEnum = new(EC_InternalUseOnlyConstructor, Outer, TEXT("EEffects"), RF_Public|RF_Transient|RF_MarkAsNative) UEnum(FObjectInitializer());
+			TArray<TPair<FName, int64>> EnumNames;
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Bump")), 1));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Buzz")), 2));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Click")), 3));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Double_Click")), 4));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Fuzz")), 5));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Hum")), 6));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Pulse")), 8));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Tick")), 11));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::Triple_Click")), 16));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EEffects::EEffects_MAX")), 17));
+			ReturnEnum->SetEnums(EnumNames, UEnum::ECppForm::EnumClass);
+			ReturnEnum->CppType = TEXT("EEffects");
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnEnum->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnEnum, TEXT("BlueprintType"), TEXT("true"));
+			MetaData->SetValue(ReturnEnum, TEXT("Bump.DisplayName"), TEXT("Bump"));
+			MetaData->SetValue(ReturnEnum, TEXT("Buzz.DisplayName"), TEXT("Buzz"));
+			MetaData->SetValue(ReturnEnum, TEXT("Click.DisplayName"), TEXT("Click"));
+			MetaData->SetValue(ReturnEnum, TEXT("Double_Click.DisplayName"), TEXT("Double Click"));
+			MetaData->SetValue(ReturnEnum, TEXT("Fuzz.DisplayName"), TEXT("Fuzz"));
+			MetaData->SetValue(ReturnEnum, TEXT("Hum.DisplayName"), TEXT("Hum"));
+			MetaData->SetValue(ReturnEnum, TEXT("ModuleRelativePath"), TEXT("Public/FEffectStruct.h"));
+			MetaData->SetValue(ReturnEnum, TEXT("Pulse.DisplayName"), TEXT("Pulse"));
+			MetaData->SetValue(ReturnEnum, TEXT("Tick.DisplayName"), TEXT("Tick"));
+			MetaData->SetValue(ReturnEnum, TEXT("Triple_Click.DisplayName"), TEXT("Triple Click"));
+#endif
+		}
+		return ReturnEnum;
+	}
+	uint32 Get_Z_Construct_UEnum_HapticSuit_EEffects_CRC() { return 2959565437U; }
+	UScriptStruct* Z_Construct_UScriptStruct_FEffectStruct()
+	{
+		UPackage* Outer = Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UScriptStruct_FEffectStruct_CRC();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("EffectStruct"), sizeof(FEffectStruct), Get_Z_Construct_UScriptStruct_FEffectStruct_CRC(), false);
+		if (!ReturnStruct)
+		{
+			ReturnStruct = new(EC_InternalUseOnlyConstructor, Outer, TEXT("EffectStruct"), RF_Public|RF_Transient|RF_MarkAsNative) UScriptStruct(FObjectInitializer(), NULL, new UScriptStruct::TCppStructOps<FEffectStruct>, EStructFlags(0x00000201));
+			UProperty* NewProp_Effect = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Effect"), RF_Public|RF_Transient|RF_MarkAsNative) UEnumProperty(CPP_PROPERTY_BASE(Effect, FEffectStruct), 0x0010000000000005, Z_Construct_UEnum_HapticSuit_EEffects());
+			UProperty* NewProp_Effect_Underlying = new(EC_InternalUseOnlyConstructor, NewProp_Effect, TEXT("UnderlyingType"), RF_Public|RF_Transient|RF_MarkAsNative) UByteProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000);
+			UProperty* NewProp_Strength = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Strength"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Strength, FEffectStruct), 0x0010000000000001);
+			UProperty* NewProp_Duration = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Duration"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Duration, FEffectStruct), 0x0010000000000001);
+			UProperty* NewProp_Time = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Time"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Time, FEffectStruct), 0x0010000000000001);
+			ReturnStruct->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnStruct->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnStruct, TEXT("ModuleRelativePath"), TEXT("Public/FEffectStruct.h"));
+			MetaData->SetValue(NewProp_Effect, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Effect, TEXT("ModuleRelativePath"), TEXT("Public/FEffectStruct.h"));
+			MetaData->SetValue(NewProp_Strength, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Strength, TEXT("ModuleRelativePath"), TEXT("Public/FEffectStruct.h"));
+			MetaData->SetValue(NewProp_Duration, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Duration, TEXT("ModuleRelativePath"), TEXT("Public/FEffectStruct.h"));
+			MetaData->SetValue(NewProp_Time, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Time, TEXT("ModuleRelativePath"), TEXT("Public/FEffectStruct.h"));
+#endif
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FEffectStruct_CRC() { return 253263739U; }
+	UScriptStruct* Z_Construct_UScriptStruct_FPatternArgs()
+	{
+		UPackage* Outer = Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UScriptStruct_FPatternArgs_CRC();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("PatternArgs"), sizeof(FPatternArgs), Get_Z_Construct_UScriptStruct_FPatternArgs_CRC(), false);
+		if (!ReturnStruct)
+		{
+			ReturnStruct = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PatternArgs"), RF_Public|RF_Transient|RF_MarkAsNative) UScriptStruct(FObjectInitializer(), NULL, new UScriptStruct::TCppStructOps<FPatternArgs>, EStructFlags(0x00000201));
+			UProperty* NewProp_Time = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Time"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Time, FPatternArgs), 0x0010000000000001);
+			ReturnStruct->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnStruct->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnStruct, TEXT("ModuleRelativePath"), TEXT("Public/FPatternArgs.h"));
+			MetaData->SetValue(NewProp_Time, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Time, TEXT("ModuleRelativePath"), TEXT("Public/FPatternArgs.h"));
+#endif
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FPatternArgs_CRC() { return 1061881350U; }
+	UEnum* Z_Construct_UEnum_HapticSuit_EAreaFlags()
+	{
+		UPackage* Outer=Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UEnum_HapticSuit_EAreaFlags_CRC();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EAreaFlags"), 0, Get_Z_Construct_UEnum_HapticSuit_EAreaFlags_CRC(), false);
+		if (!ReturnEnum)
+		{
+			ReturnEnum = new(EC_InternalUseOnlyConstructor, Outer, TEXT("EAreaFlags"), RF_Public|RF_Transient|RF_MarkAsNative) UEnum(FObjectInitializer());
+			TArray<TPair<FName, int64>> EnumNames;
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Forearm_Left")), 0));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Upper_Arm_Left")), 1));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Shoulder_Left")), 2));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Back_Left")), 3));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Chest_Left")), 4));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Upper_Ab_Left")), 5));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Mid_Ab_Left")), 6));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Lower_Ab_Left")), 7));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Forearm_Right")), 16));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Upper_Arm_Right")), 17));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Shoulder_Right")), 18));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Back_Right")), 19));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Chest_Right")), 20));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Upper_Ab_Right")), 21));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Mid_Ab_Right")), 22));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::Lower_Ab_Right")), 23));
+			EnumNames.Add(TPairInitializer<FName, int64>(FName(TEXT("EAreaFlags::EAreaFlags_MAX")), 24));
+			ReturnEnum->SetEnums(EnumNames, UEnum::ECppForm::EnumClass);
+			ReturnEnum->CppType = TEXT("EAreaFlags");
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnEnum->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnEnum, TEXT("Back_Left.DisplayName"), TEXT("Back Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Back_Right.DisplayName"), TEXT("Back Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("Bitflags"), TEXT(""));
+			MetaData->SetValue(ReturnEnum, TEXT("BlueprintType"), TEXT("true"));
+			MetaData->SetValue(ReturnEnum, TEXT("Chest_Left.DisplayName"), TEXT("Chest Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Chest_Right.DisplayName"), TEXT("Chest Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("Forearm_Left.DisplayName"), TEXT("Forearm Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Forearm_Left.ToolTip"), TEXT("Forearm_Left = 1 UMETA(DisplayName = \"Forearm Left\"),\n       Upper_Arm_Left = 2 UMETA(DisplayName = \"Upper Arm Left\"),\n       Shoulder_Left = 3 UMETA(DisplayName = \"Shoulder Left\"),\n       Back_Left = 4 UMETA(DisplayName = \"Back Left\"),\n       Chest_Left = 5 UMETA(DisplayName = \"Chest Left\"),\n       Upper_Ab_Left = 6 UMETA(DisplayName = \"Upper Ab Left\"),\n       Mid_Ab_Left = 7 UMETA(DisplayName = \"Mid Ab Left\"),\n       Lower_Ab_Left = 8 UMETA(DisplayName = \"Lower Ab Left\"),\n\n       Forearm_Right = 17 UMETA(DisplayName = \"Forearm Right\"),\n       Upper_Arm_Right = 18 UMETA(DisplayName = \"Upper Arm Right\"),\n       Shoulder_Right = 19 UMETA(DisplayName = \"Shoulder Right\"),\n       Back_Right = 20 UMETA(DisplayName = \"Back Right\"),\n       Chest_Right = 21 UMETA(DisplayName = \"Chest Right\"),\n       Upper_Ab_Right = 22 UMETA(DisplayName = \"Upper Ab Right\"),\n       Mid_Ab_Right = 23 UMETA(DisplayName = \"Mid Ab Right\"),\n       Lower_Ab_Right = 24 UMETA(DisplayName = \"Lower Ab Right\")"));
+			MetaData->SetValue(ReturnEnum, TEXT("Forearm_Right.DisplayName"), TEXT("Forearm Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("Lower_Ab_Left.DisplayName"), TEXT("Lower Ab Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Lower_Ab_Right.DisplayName"), TEXT("Lower Ab Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("Mid_Ab_Left.DisplayName"), TEXT("Mid Ab Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Mid_Ab_Right.DisplayName"), TEXT("Mid Ab Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("ModuleRelativePath"), TEXT("Public/EAreaFlags.h"));
+			MetaData->SetValue(ReturnEnum, TEXT("Shoulder_Left.DisplayName"), TEXT("Shoulder Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Shoulder_Right.DisplayName"), TEXT("Shoulder Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("Upper_Ab_Left.DisplayName"), TEXT("Upper Ab Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Upper_Ab_Right.DisplayName"), TEXT("Upper Ab Right"));
+			MetaData->SetValue(ReturnEnum, TEXT("Upper_Arm_Left.DisplayName"), TEXT("Upper Arm Left"));
+			MetaData->SetValue(ReturnEnum, TEXT("Upper_Arm_Right.DisplayName"), TEXT("Upper Arm Right"));
+#endif
+		}
+		return ReturnEnum;
+	}
+	uint32 Get_Z_Construct_UEnum_HapticSuit_EAreaFlags_CRC() { return 532435361U; }
+	UScriptStruct* Z_Construct_UScriptStruct_FSequenceArgs()
+	{
+		UPackage* Outer = Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UScriptStruct_FSequenceArgs_CRC();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("SequenceArgs"), sizeof(FSequenceArgs), Get_Z_Construct_UScriptStruct_FSequenceArgs_CRC(), false);
+		if (!ReturnStruct)
+		{
+			ReturnStruct = new(EC_InternalUseOnlyConstructor, Outer, TEXT("SequenceArgs"), RF_Public|RF_Transient|RF_MarkAsNative) UScriptStruct(FObjectInitializer(), NULL, new UScriptStruct::TCppStructOps<FSequenceArgs>, EStructFlags(0x00000001));
+			UProperty* NewProp_Area = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Area"), RF_Public|RF_Transient|RF_MarkAsNative) UIntProperty(CPP_PROPERTY_BASE(Area, FSequenceArgs), 0x0010000000000005);
+			UProperty* NewProp_Time = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Time"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Time, FSequenceArgs), 0x0010000000000001);
+			ReturnStruct->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnStruct->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnStruct, TEXT("ModuleRelativePath"), TEXT("Public/FSequenceArgs.h"));
+			MetaData->SetValue(NewProp_Area, TEXT("Bitmask"), TEXT(""));
+			MetaData->SetValue(NewProp_Area, TEXT("BitmaskEnum"), TEXT("EAreaFlags"));
+			MetaData->SetValue(NewProp_Area, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Area, TEXT("ModuleRelativePath"), TEXT("Public/FSequenceArgs.h"));
+			MetaData->SetValue(NewProp_Time, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Time, TEXT("ModuleRelativePath"), TEXT("Public/FSequenceArgs.h"));
+#endif
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FSequenceArgs_CRC() { return 1514622395U; }
+	UClass* Z_Construct_UClass_UHapticSequence_NoRegister()
+	{
+		return UHapticSequence::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UHapticSequence()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UHapticAsset();
+			Z_Construct_UPackage__Script_HapticSuit();
+			OuterClass = UHapticSequence::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20080080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_EffectArray = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("EffectArray"), RF_Public|RF_Transient|RF_MarkAsNative) UArrayProperty(CPP_PROPERTY_BASE(EffectArray, UHapticSequence), 0x0010000000000001);
+				UProperty* NewProp_EffectArray_Inner = new(EC_InternalUseOnlyConstructor, NewProp_EffectArray, TEXT("EffectArray"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UScriptStruct_FEffectStruct());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("BlueprintType"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UHapticSequence.h"));
+				MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("Public/UHapticSequence.h"));
+				MetaData->SetValue(NewProp_EffectArray, TEXT("Category"), TEXT("Data"));
+				MetaData->SetValue(NewProp_EffectArray, TEXT("ModuleRelativePath"), TEXT("Public/UHapticSequence.h"));
+				MetaData->SetValue(NewProp_EffectArray, TEXT("ToolTip"), TEXT("UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (Bitmask, BitmaskEnum = \"EAreaFlags\"), Category = Data)\nint32 Area;"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UHapticSequence(Z_Construct_UClass_UHapticSequence, &UHapticSequence::StaticClass, TEXT("UHapticSequence"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UHapticSequence);
+	UScriptStruct* Z_Construct_UScriptStruct_FSequencePair()
+	{
+		UPackage* Outer = Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UScriptStruct_FSequencePair_CRC();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("SequencePair"), sizeof(FSequencePair), Get_Z_Construct_UScriptStruct_FSequencePair_CRC(), false);
+		if (!ReturnStruct)
+		{
+			ReturnStruct = new(EC_InternalUseOnlyConstructor, Outer, TEXT("SequencePair"), RF_Public|RF_Transient|RF_MarkAsNative) UScriptStruct(FObjectInitializer(), NULL, new UScriptStruct::TCppStructOps<FSequencePair>, EStructFlags(0x00000201));
+			UProperty* NewProp_Sequence = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Sequence"), RF_Public|RF_Transient|RF_MarkAsNative) UAssetObjectProperty(CPP_PROPERTY_BASE(Sequence, FSequencePair), 0x0014000000000001, Z_Construct_UClass_UHapticSequence_NoRegister());
+			UProperty* NewProp_Args = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Args"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(CPP_PROPERTY_BASE(Args, FSequencePair), 0x0010000000000001, Z_Construct_UScriptStruct_FSequenceArgs());
+			ReturnStruct->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnStruct->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnStruct, TEXT("ModuleRelativePath"), TEXT("Public/FSequencePair.h"));
+			MetaData->SetValue(NewProp_Sequence, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Sequence, TEXT("ModuleRelativePath"), TEXT("Public/FSequencePair.h"));
+			MetaData->SetValue(NewProp_Args, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Args, TEXT("ModuleRelativePath"), TEXT("Public/FSequencePair.h"));
+#endif
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FSequencePair_CRC() { return 3296595909U; }
+	UClass* Z_Construct_UClass_UHapticPattern_NoRegister()
+	{
+		return UHapticPattern::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UHapticPattern()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UHapticAsset();
+			Z_Construct_UPackage__Script_HapticSuit();
+			OuterClass = UHapticPattern::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20080080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_SequenceArray = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("SequenceArray"), RF_Public|RF_Transient|RF_MarkAsNative) UArrayProperty(CPP_PROPERTY_BASE(SequenceArray, UHapticPattern), 0x0010000000000001);
+				UProperty* NewProp_SequenceArray_Inner = new(EC_InternalUseOnlyConstructor, NewProp_SequenceArray, TEXT("SequenceArray"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UScriptStruct_FSequencePair());
+				UProperty* NewProp_Time = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("Time"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Time, UHapticPattern), 0x0010000000000001);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("BlueprintType"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UHapticPattern.h"));
+				MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("Public/UHapticPattern.h"));
+				MetaData->SetValue(NewProp_SequenceArray, TEXT("Category"), TEXT("Data"));
+				MetaData->SetValue(NewProp_SequenceArray, TEXT("ModuleRelativePath"), TEXT("Public/UHapticPattern.h"));
+				MetaData->SetValue(NewProp_Time, TEXT("Category"), TEXT("Data"));
+				MetaData->SetValue(NewProp_Time, TEXT("ModuleRelativePath"), TEXT("Public/UHapticPattern.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UHapticPattern(Z_Construct_UClass_UHapticPattern, &UHapticPattern::StaticClass, TEXT("UHapticPattern"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UHapticPattern);
+	UScriptStruct* Z_Construct_UScriptStruct_FPatternPair()
+	{
+		UPackage* Outer = Z_Construct_UPackage__Script_HapticSuit();
+		extern uint32 Get_Z_Construct_UScriptStruct_FPatternPair_CRC();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("PatternPair"), sizeof(FPatternPair), Get_Z_Construct_UScriptStruct_FPatternPair_CRC(), false);
+		if (!ReturnStruct)
+		{
+			ReturnStruct = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PatternPair"), RF_Public|RF_Transient|RF_MarkAsNative) UScriptStruct(FObjectInitializer(), NULL, new UScriptStruct::TCppStructOps<FPatternPair>, EStructFlags(0x00000201));
+			UProperty* NewProp_Pattern = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Pattern"), RF_Public|RF_Transient|RF_MarkAsNative) UAssetObjectProperty(CPP_PROPERTY_BASE(Pattern, FPatternPair), 0x0014000000000001, Z_Construct_UClass_UHapticPattern_NoRegister());
+			UProperty* NewProp_Args = new(EC_InternalUseOnlyConstructor, ReturnStruct, TEXT("Args"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(CPP_PROPERTY_BASE(Args, FPatternPair), 0x0010000000000001, Z_Construct_UScriptStruct_FPatternArgs());
+			ReturnStruct->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnStruct->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnStruct, TEXT("ModuleRelativePath"), TEXT("Public/FPatternPair.h"));
+			MetaData->SetValue(NewProp_Pattern, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Pattern, TEXT("ModuleRelativePath"), TEXT("Public/FPatternPair.h"));
+			MetaData->SetValue(NewProp_Args, TEXT("Category"), TEXT("Data"));
+			MetaData->SetValue(NewProp_Args, TEXT("ModuleRelativePath"), TEXT("Public/FPatternPair.h"));
+#endif
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FPatternPair_CRC() { return 873524328U; }
+	UClass* Z_Construct_UClass_UHapticExperience_NoRegister()
+	{
+		return UHapticExperience::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UHapticExperience()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UHapticAsset();
+			Z_Construct_UPackage__Script_HapticSuit();
+			OuterClass = UHapticExperience::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20080080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_PatternArray = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("PatternArray"), RF_Public|RF_Transient|RF_MarkAsNative) UArrayProperty(CPP_PROPERTY_BASE(PatternArray, UHapticExperience), 0x0010000000000001);
+				UProperty* NewProp_PatternArray_Inner = new(EC_InternalUseOnlyConstructor, NewProp_PatternArray, TEXT("PatternArray"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000, Z_Construct_UScriptStruct_FPatternPair());
+				UProperty* NewProp_Time = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("Time"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Time, UHapticExperience), 0x0010000000000001);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("BlueprintType"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UHapticExperience.h"));
+				MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("Public/UHapticExperience.h"));
+				MetaData->SetValue(NewProp_PatternArray, TEXT("Category"), TEXT("Data"));
+				MetaData->SetValue(NewProp_PatternArray, TEXT("ModuleRelativePath"), TEXT("Public/UHapticExperience.h"));
+				MetaData->SetValue(NewProp_PatternArray, TEXT("ToolTip"), TEXT("worry about parameterizing area later"));
+				MetaData->SetValue(NewProp_Time, TEXT("Category"), TEXT("Data"));
+				MetaData->SetValue(NewProp_Time, TEXT("ModuleRelativePath"), TEXT("Public/UHapticExperience.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UHapticExperience(Z_Construct_UClass_UHapticExperience, &UHapticExperience::StaticClass, TEXT("UHapticExperience"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UHapticExperience);
 	UEnum* Z_Construct_UEnum_HapticSuit_HapticFileType()
 	{
 		UPackage* Outer=Z_Construct_UPackage__Script_HapticSuit();
@@ -75,165 +623,14 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 			MetaData->SetValue(ReturnEnum, TEXT("Pattern.DisplayName"), TEXT("Pattern"));
 			MetaData->SetValue(ReturnEnum, TEXT("Sequence.DisplayName"), TEXT("Sequence on Areas"));
 			MetaData->SetValue(ReturnEnum, TEXT("SequenceOnAll.DisplayName"), TEXT("Sequence on All"));
-			MetaData->SetValue(ReturnEnum, TEXT("ToolTip"), TEXT("Comment from 2/2015 - might be the problem?\nAs for the header - only problem, you only need to define the.generated.h includes for headers that define USTRUCT, UCLASS, etc types.If defining a UCLASS in a header file, you MUST include a companion.cpp file for the header.If the header only defines USTRUCT(s) then you do not need to include a.cpp for it(same goes for UENUM types)."));
 #endif
 		}
 		return ReturnEnum;
 	}
-	uint32 Get_Z_Construct_UEnum_HapticSuit_HapticFileType_CRC() { return 2506150421U; }
+	uint32 Get_Z_Construct_UEnum_HapticSuit_HapticFileType_CRC() { return 4154933207U; }
 	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_ClearAllHaptics()
 	{
-		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ClearAllHaptics"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHaptic()
-	{
-		struct HapticBlueprintLibrary_eventPlayHaptic_Parms
-		{
-			FString HapticEffectName;
-			HapticFileType fileType;
-			int32 Where;
-			bool ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PlayHaptic"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPlayHaptic_Parms));
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPlayHaptic_Parms, bool);
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPlayHaptic_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPlayHaptic_Parms), sizeof(bool), true);
-			UProperty* NewProp_Where = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Where"), RF_Public|RF_Transient|RF_MarkAsNative) UIntProperty(CPP_PROPERTY_BASE(Where, HapticBlueprintLibrary_eventPlayHaptic_Parms), 0x0010000000000080);
-			UProperty* NewProp_fileType = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("fileType"), RF_Public|RF_Transient|RF_MarkAsNative) UEnumProperty(CPP_PROPERTY_BASE(fileType, HapticBlueprintLibrary_eventPlayHaptic_Parms), 0x0010000000000080, Z_Construct_UEnum_HapticSuit_HapticFileType());
-			UProperty* NewProp_fileType_Underlying = new(EC_InternalUseOnlyConstructor, NewProp_fileType, TEXT("UnderlyingType"), RF_Public|RF_Transient|RF_MarkAsNative) UByteProperty(FObjectInitializer(), EC_CppProperty, 0, 0x0000000000000000);
-			UProperty* NewProp_HapticEffectName = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("HapticEffectName"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(HapticEffectName, HapticBlueprintLibrary_eventPlayHaptic_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
-			MetaData->SetValue(ReturnFunction, TEXT("CPP_Default_Where"), TEXT("16711935"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticExperience()
-	{
-		struct HapticBlueprintLibrary_eventPlayHapticExperience_Parms
-		{
-			FString HapticEffectName;
-			bool ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PlayHapticExperience"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPlayHapticExperience_Parms));
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPlayHapticExperience_Parms, bool);
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPlayHapticExperience_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPlayHapticExperience_Parms), sizeof(bool), true);
-			UProperty* NewProp_HapticEffectName = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("HapticEffectName"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(HapticEffectName, HapticBlueprintLibrary_eventPlayHapticExperience_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticPattern()
-	{
-		struct HapticBlueprintLibrary_eventPlayHapticPattern_Parms
-		{
-			FString HapticEffectName;
-			bool ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PlayHapticPattern"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPlayHapticPattern_Parms));
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPlayHapticPattern_Parms, bool);
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPlayHapticPattern_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPlayHapticPattern_Parms), sizeof(bool), true);
-			UProperty* NewProp_HapticEffectName = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("HapticEffectName"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(HapticEffectName, HapticBlueprintLibrary_eventPlayHapticPattern_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequence()
-	{
-		struct HapticBlueprintLibrary_eventPlayHapticSequence_Parms
-		{
-			FString HapticEffectName;
-			int32 Where;
-			bool ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PlayHapticSequence"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPlayHapticSequence_Parms));
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPlayHapticSequence_Parms, bool);
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPlayHapticSequence_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPlayHapticSequence_Parms), sizeof(bool), true);
-			UProperty* NewProp_Where = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Where"), RF_Public|RF_Transient|RF_MarkAsNative) UIntProperty(CPP_PROPERTY_BASE(Where, HapticBlueprintLibrary_eventPlayHapticSequence_Parms), 0x0010000000000080);
-			UProperty* NewProp_HapticEffectName = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("HapticEffectName"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(HapticEffectName, HapticBlueprintLibrary_eventPlayHapticSequence_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequenceOnAll()
-	{
-		struct HapticBlueprintLibrary_eventPlayHapticSequenceOnAll_Parms
-		{
-			FString HapticEffectName;
-			bool ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PlayHapticSequenceOnAll"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPlayHapticSequenceOnAll_Parms));
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPlayHapticSequenceOnAll_Parms, bool);
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPlayHapticSequenceOnAll_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPlayHapticSequenceOnAll_Parms), sizeof(bool), true);
-			UProperty* NewProp_HapticEffectName = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("HapticEffectName"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(HapticEffectName, HapticBlueprintLibrary_eventPlayHapticSequenceOnAll_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PluginLoadedSuccessfully()
-	{
-		struct HapticBlueprintLibrary_eventPluginLoadedSuccessfully_Parms
+		struct HapticBlueprintLibrary_eventClearAllHaptics_Parms
 		{
 			bool ReturnValue;
 		};
@@ -241,9 +638,9 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 		static UFunction* ReturnFunction = NULL;
 		if (!ReturnFunction)
 		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PluginLoadedSuccessfully"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPluginLoadedSuccessfully_Parms));
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPluginLoadedSuccessfully_Parms, bool);
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPluginLoadedSuccessfully_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPluginLoadedSuccessfully_Parms), sizeof(bool), true);
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ClearAllHaptics"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventClearAllHaptics_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventClearAllHaptics_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventClearAllHaptics_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventClearAllHaptics_Parms), sizeof(bool), true);
 			ReturnFunction->Bind();
 			ReturnFunction->StaticLink();
 #if WITH_METADATA
@@ -254,13 +651,185 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 		}
 		return ReturnFunction;
 	}
-	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_ResetPlugin()
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_CreateExperienceHandle()
 	{
+		struct HapticBlueprintLibrary_eventCreateExperienceHandle_Parms
+		{
+			UHapticExperience* experience;
+			UPlaybackHandle* ReturnValue;
+		};
 		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
 		static UFunction* ReturnFunction = NULL;
 		if (!ReturnFunction)
 		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ResetPlugin"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535);
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("CreateExperienceHandle"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventCreateExperienceHandle_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ReturnValue, HapticBlueprintLibrary_eventCreateExperienceHandle_Parms), 0x0010000000000580, Z_Construct_UClass_UPlaybackHandle_NoRegister());
+			UProperty* NewProp_experience = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("experience"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(experience, HapticBlueprintLibrary_eventCreateExperienceHandle_Parms), 0x0010000000000080, Z_Construct_UClass_UHapticExperience_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_CreatePatternHandle()
+	{
+		struct HapticBlueprintLibrary_eventCreatePatternHandle_Parms
+		{
+			UHapticPattern* pattern;
+			UPlaybackHandle* ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("CreatePatternHandle"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventCreatePatternHandle_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ReturnValue, HapticBlueprintLibrary_eventCreatePatternHandle_Parms), 0x0010000000000580, Z_Construct_UClass_UPlaybackHandle_NoRegister());
+			UProperty* NewProp_pattern = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("pattern"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(pattern, HapticBlueprintLibrary_eventCreatePatternHandle_Parms), 0x0010000000000080, Z_Construct_UClass_UHapticPattern_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_CreateSequenceHandle()
+	{
+		struct HapticBlueprintLibrary_eventCreateSequenceHandle_Parms
+		{
+			int32 area;
+			UHapticSequence* sequence;
+			UPlaybackHandle* ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("CreateSequenceHandle"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventCreateSequenceHandle_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ReturnValue, HapticBlueprintLibrary_eventCreateSequenceHandle_Parms), 0x0010000000000580, Z_Construct_UClass_UPlaybackHandle_NoRegister());
+			UProperty* NewProp_sequence = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("sequence"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(sequence, HapticBlueprintLibrary_eventCreateSequenceHandle_Parms), 0x0010000000000080, Z_Construct_UClass_UHapticSequence_NoRegister());
+			UProperty* NewProp_area = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("area"), RF_Public|RF_Transient|RF_MarkAsNative) UIntProperty(CPP_PROPERTY_BASE(area, HapticBlueprintLibrary_eventCreateSequenceHandle_Parms), 0x0010000000000080);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToService()
+	{
+		struct HapticBlueprintLibrary_eventIsConnectedToService_Parms
+		{
+			bool ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("IsConnectedToService"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventIsConnectedToService_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventIsConnectedToService_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventIsConnectedToService_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventIsConnectedToService_Parms), sizeof(bool), true);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToSuit()
+	{
+		struct HapticBlueprintLibrary_eventIsConnectedToSuit_Parms
+		{
+			bool ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("IsConnectedToSuit"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventIsConnectedToSuit_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventIsConnectedToSuit_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventIsConnectedToSuit_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventIsConnectedToSuit_Parms), sizeof(bool), true);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PauseAllHaptics()
+	{
+		struct HapticBlueprintLibrary_eventPauseAllHaptics_Parms
+		{
+			bool ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PauseAllHaptics"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPauseAllHaptics_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPauseAllHaptics_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPauseAllHaptics_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPauseAllHaptics_Parms), sizeof(bool), true);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_PlayTestRoutine()
+	{
+		struct HapticBlueprintLibrary_eventPlayTestRoutine_Parms
+		{
+			bool ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("PlayTestRoutine"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventPlayTestRoutine_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventPlayTestRoutine_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventPlayTestRoutine_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventPlayTestRoutine_Parms), sizeof(bool), true);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Classes/HapticBlueprintLibrary.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UHapticBlueprintLibrary_ResumeAllHaptics()
+	{
+		struct HapticBlueprintLibrary_eventResumeAllHaptics_Parms
+		{
+			bool ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UHapticBlueprintLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ResumeAllHaptics"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04022401, 65535, sizeof(HapticBlueprintLibrary_eventResumeAllHaptics_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(ReturnValue, HapticBlueprintLibrary_eventResumeAllHaptics_Parms, bool);
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(ReturnValue, HapticBlueprintLibrary_eventResumeAllHaptics_Parms), 0x0010000000000580, CPP_BOOL_PROPERTY_BITMASK(ReturnValue, HapticBlueprintLibrary_eventResumeAllHaptics_Parms), sizeof(bool), true);
 			ReturnFunction->Bind();
 			ReturnFunction->StaticLink();
 #if WITH_METADATA
@@ -289,22 +858,24 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 				OuterClass->ClassFlags |= 0x20000080;
 
 				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_ClearAllHaptics());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHaptic());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticExperience());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticPattern());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequence());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequenceOnAll());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PluginLoadedSuccessfully());
-				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_ResetPlugin());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_CreateExperienceHandle());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_CreatePatternHandle());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_CreateSequenceHandle());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToService());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToSuit());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PauseAllHaptics());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayTestRoutine());
+				OuterClass->LinkChild(Z_Construct_UFunction_UHapticBlueprintLibrary_ResumeAllHaptics());
 
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_ClearAllHaptics(), "ClearAllHaptics"); // 1864123311
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHaptic(), "PlayHaptic"); // 3951451391
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticExperience(), "PlayHapticExperience"); // 3321241838
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticPattern(), "PlayHapticPattern"); // 52500945
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequence(), "PlayHapticSequence"); // 2047461075
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayHapticSequenceOnAll(), "PlayHapticSequenceOnAll"); // 3268634183
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PluginLoadedSuccessfully(), "PluginLoadedSuccessfully"); // 3796563653
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_ResetPlugin(), "ResetPlugin"); // 4280378797
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_ClearAllHaptics(), "ClearAllHaptics"); // 1530733950
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_CreateExperienceHandle(), "CreateExperienceHandle"); // 98109447
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_CreatePatternHandle(), "CreatePatternHandle"); // 3982434339
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_CreateSequenceHandle(), "CreateSequenceHandle"); // 2145302208
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToService(), "IsConnectedToService"); // 394806132
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_IsConnectedToSuit(), "IsConnectedToSuit"); // 2774430060
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PauseAllHaptics(), "PauseAllHaptics"); // 367220731
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_PlayTestRoutine(), "PlayTestRoutine"); // 3761173322
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UHapticBlueprintLibrary_ResumeAllHaptics(), "ResumeAllHaptics"); // 229372669
 				OuterClass->StaticLink();
 #if WITH_METADATA
 				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
@@ -318,6 +889,111 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UHapticBlueprintLibrary(Z_Construct_UClass_UHapticBlueprintLibrary, &UHapticBlueprintLibrary::StaticClass, TEXT("UHapticBlueprintLibrary"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UHapticBlueprintLibrary);
+	UFunction* Z_Construct_UFunction_UPlaybackHandle_Pause()
+	{
+		struct PlaybackHandle_eventPause_Parms
+		{
+			UPlaybackHandle* ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UPlaybackHandle();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Pause"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535, sizeof(PlaybackHandle_eventPause_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ReturnValue, PlaybackHandle_eventPause_Parms), 0x0010000000000580, Z_Construct_UClass_UPlaybackHandle_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/UPlaybackHandle.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UPlaybackHandle_Play()
+	{
+		struct PlaybackHandle_eventPlay_Parms
+		{
+			UPlaybackHandle* ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UPlaybackHandle();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Play"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535, sizeof(PlaybackHandle_eventPlay_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ReturnValue, PlaybackHandle_eventPlay_Parms), 0x0010000000000580, Z_Construct_UClass_UPlaybackHandle_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/UPlaybackHandle.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UPlaybackHandle_Stop()
+	{
+		struct PlaybackHandle_eventStop_Parms
+		{
+			UPlaybackHandle* ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UPlaybackHandle();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Stop"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535, sizeof(PlaybackHandle_eventStop_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ReturnValue, PlaybackHandle_eventStop_Parms), 0x0010000000000580, Z_Construct_UClass_UPlaybackHandle_NoRegister());
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("HapticSuit"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/UPlaybackHandle.h"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UClass* Z_Construct_UClass_UPlaybackHandle_NoRegister()
+	{
+		return UPlaybackHandle::StaticClass();
+	}
+	UClass* Z_Construct_UClass_UPlaybackHandle()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_UObject();
+			Z_Construct_UPackage__Script_HapticSuit();
+			OuterClass = UPlaybackHandle::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20000080;
+
+				OuterClass->LinkChild(Z_Construct_UFunction_UPlaybackHandle_Pause());
+				OuterClass->LinkChild(Z_Construct_UFunction_UPlaybackHandle_Play());
+				OuterClass->LinkChild(Z_Construct_UFunction_UPlaybackHandle_Stop());
+
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UPlaybackHandle_Pause(), "Pause"); // 969276434
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UPlaybackHandle_Play(), "Play"); // 3949804750
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UPlaybackHandle_Stop(), "Stop"); // 3844070520
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("BlueprintType"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("UPlaybackHandle.h"));
+				MetaData->SetValue(OuterClass, TEXT("IsBlueprintBase"), TEXT("true"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("Public/UPlaybackHandle.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	static FCompiledInDefer Z_CompiledInDefer_UClass_UPlaybackHandle(Z_Construct_UClass_UPlaybackHandle, &UPlaybackHandle::StaticClass, TEXT("UPlaybackHandle"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UPlaybackHandle);
 	UPackage* Z_Construct_UPackage__Script_HapticSuit()
 	{
 		static UPackage* ReturnPackage = NULL;
@@ -326,8 +1002,8 @@ static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_HapticFileType(HapticFil
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/HapticSuit")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x78725CD5;
-			Guid.B = 0x54DCE2F0;
+			Guid.A = 0x2837ADAB;
+			Guid.B = 0x535ADDDA;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

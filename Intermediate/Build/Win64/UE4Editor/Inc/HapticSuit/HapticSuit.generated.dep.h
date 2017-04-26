@@ -6,6 +6,39 @@
 ===========================================================================*/
 
 #include "GeneratedCppIncludes.h"
+#ifndef HAPTICSUIT_UHapticAsset_generated_h
+	#include "Public/UHapticAsset.h"
+#endif
+#ifndef HAPTICSUIT_FEffectStruct_generated_h
+	#include "Public/FEffectStruct.h"
+#endif
+#ifndef HAPTICSUIT_FPatternArgs_generated_h
+	#include "Public/FPatternArgs.h"
+#endif
+#ifndef HAPTICSUIT_EAreaFlags_generated_h
+	#include "Public/EAreaFlags.h"
+#endif
+#ifndef HAPTICSUIT_FSequenceArgs_generated_h
+	#include "Public/FSequenceArgs.h"
+#endif
+#ifndef HAPTICSUIT_UHapticSequence_generated_h
+	#include "Public/UHapticSequence.h"
+#endif
+#ifndef HAPTICSUIT_FSequencePair_generated_h
+	#include "Public/FSequencePair.h"
+#endif
+#ifndef HAPTICSUIT_UHapticPattern_generated_h
+	#include "Public/UHapticPattern.h"
+#endif
+#ifndef HAPTICSUIT_FPatternPair_generated_h
+	#include "Public/FPatternPair.h"
+#endif
+#ifndef HAPTICSUIT_UHapticExperience_generated_h
+	#include "Public/UHapticExperience.h"
+#endif
 #ifndef HAPTICSUIT_HapticBlueprintLibrary_generated_h
 	#include "Classes/HapticBlueprintLibrary.h"
+#endif
+#ifndef HAPTICSUIT_UPlaybackHandle_generated_h
+	#include "Public/UPlaybackHandle.h"
 #endif

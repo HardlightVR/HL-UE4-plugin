@@ -1,1 +1,12 @@
-C:\Users\Lucian Copeland\Desktop\HapticPlugin_001\HapticSuit\HostProject\Plugins\HapticSuit\Source\HapticSuit\Classes\HapticBlueprintLibrary.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Classes\HapticBlueprintLibrary.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\EAreaFlags.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\FEffectStruct.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\FPatternArgs.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\FPatternPair.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\FSequenceArgs.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\FSequencePair.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\UHapticAsset.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\UHapticExperience.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\UHapticPattern.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\UHapticSequence.h
+D:\UnrealEngine-release\Engine\Plugins\Runtime\HapticSuit\Source\HapticSuit\Public\UPlaybackHandle.h
