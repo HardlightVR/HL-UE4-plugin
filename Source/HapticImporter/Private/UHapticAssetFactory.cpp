@@ -12,7 +12,7 @@
 
 UHapticAssetFactory::UHapticAssetFactory(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	bCreateNew = true;
+
 	bEditAfterNew = true;
 	bText = true;
 //	ImportPriority = 999999999;
@@ -25,36 +25,8 @@ UHapticAssetFactory::UHapticAssetFactory(const FObjectInitializer& ObjectInitial
 
 }
 
-//
-//UObject* UHapticAssetFactory::FactoryCreateNew(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn)
-//{
-//	IPlatformFile& PlatformFile = IPlatformFile::GetPlatformPhysical();
-//	FString MyFileName = FString(TEXT("C:/Users/NullSpace Team/Documents/testseq.hdf"));
-//	const TCHAR* MyTCharFileName = *MyFileName;
-//	IFileHandle* File = PlatformFile.OpenRead(MyTCharFileName);
-//	FString JsonRaw;
-//	if (!FFileHelper::LoadFileToString(JsonRaw, MyTCharFileName)) {
-//		UE_LOG(LogTemp, Warning, TEXT("Unable to import the bump sequence"));
-//		return nullptr;
-//	}
-//	
-//	UE_LOG(LogTemp, Warning, TEXT("Successfully imported the result!"));
-//
-//	
-//	if (Importer.ImportFromString(JsonRaw, MyFileName)) {
-//		UHapticAsset* HapticAsset = NewObject<UHapticAsset>(InParent, Name, Flags);
-//		if (!Importer.PerformImport(InParent, Name, Flags, HapticAsset))
-//		{
-//
-//			UE_LOG(LogTemp, Warning, TEXT("Couldnt do step PerformImport"));
-//
-//
-//		}
-//		return HapticAsset;
-//	}
-//	
-//	return nullptr;
-//}
+
+
 
 UObject* UHapticAssetFactory::FactoryCreateFile(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags, const FString& FileName, const TCHAR* Parms, FFeedbackContext* Warn, bool& bOutOperationCanceled)
 {

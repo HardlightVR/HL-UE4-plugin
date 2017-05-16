@@ -14,6 +14,9 @@ class UHapticSequence;
 class UHapticPattern;
 class UHapticExperience;
 
+
+UObject* CreateNewAsset(UClass* AssetClass, const FString& TargetPath, const FString& DesiredName, EObjectFlags Flags);
+
 class FHapticAssetImporter
 {
 public:
