@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "0.2.0",
+	"VersionName": "0.2.1",
 	"FriendlyName": "Hardlight Plugin",
 	"Description": "Allows communication with the NSVR Service plugin through Blueprints.",
 	"Category": "Haptics",
@@ -18,15 +18,19 @@
 			"Name": "HapticSuit",
 			"Type": "Runtime",
 			"LoadingPhase": "PreDefault",
-			 "WhitelistPlatforms": [ "Win32", "Win64" ]
-
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64"
+			]
 		},
 		{
 			"Name": "HapticImporter",
 			"Type": "Editor",
 			"LoadingPhase": "Default",
-			 "WhitelistPlatforms": [ "Win32", "Win64" ]
-
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64"
+			]
 		}
 	],
 	"RequiresBuildPlatform": false
