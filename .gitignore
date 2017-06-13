@@ -70,7 +70,5 @@ Intermediate/*
 DerivedDataCache/*
 
 #Whitelisting the DLLs/Lib
-!ThirdParty/lib/Win64/NSLoader.dll
-!ThirdParty/lib/Win64/NSLoader.lib
-!ThirdParty/lib/Win32/NSLoader.dll
-!ThirdParty/lib/Win32/NSLoader.lib
+!ThirdParty/**/*.dll
+!ThirdParty/**/*.lib
