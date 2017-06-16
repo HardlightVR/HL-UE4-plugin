@@ -12,7 +12,6 @@ void UPlaybackHandleImpl::Play()
 void UPlaybackHandleImpl::Pause()
 {
 	NSVR_PlaybackHandle_Command(m_handle, NSVR_PlaybackCommand::NSVR_PlaybackCommand_Pause);
-
 }
 
 void UPlaybackHandleImpl::Reset()
@@ -22,13 +21,11 @@ void UPlaybackHandleImpl::Reset()
 
 UPlaybackHandleImpl::UPlaybackHandleImpl(NSVR_Timeline* timeline)
 {
-
 	NSVR_PlaybackHandle_Create(&m_handle);
 	NSVR_Timeline_Transmit(timeline, m_handle);
 }
 
 UPlaybackHandleImpl::~UPlaybackHandleImpl()
 {
-	
 	NSVR_PlaybackHandle_Release(&m_handle);
 }

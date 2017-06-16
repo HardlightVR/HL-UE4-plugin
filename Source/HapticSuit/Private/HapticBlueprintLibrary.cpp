@@ -11,15 +11,12 @@
 bool UHapticBlueprintLibrary::IsConnectedToSuit()
 {
 	return FHapticSuitModule::Get().GetDeviceInfo(nullptr);
-
 }
 
-bool UHapticBlueprintLibrary::PauseAllHaptics()
+bool UHapticBlueprintLibrary::SuspendAllHaptics()
 {
-	return FHapticSuitModule::Get().PauseAllHaptics();
-
+	return FHapticSuitModule::Get().SuspendAllHaptics();
 }
-
 
 bool UHapticBlueprintLibrary::ResumeAllHaptics()
 {
@@ -29,14 +26,11 @@ bool UHapticBlueprintLibrary::ResumeAllHaptics()
 bool UHapticBlueprintLibrary::ClearAllHaptics()
 {
 	return FHapticSuitModule::Get().ClearAllHaptics();
-
 }
-
-
 
 void EncodeSequence(float timeOffset, const TUniquePtr<ITimeline>& timeline, const UHapticSequence* seq, int area) {
 	for (const auto& item : seq->EffectArray) {
-	//	UE_LOG(LogTemp, Warning, TEXT("Add effect: t=%.3f,  d=%.3f, s=%.3f, e=%d, a=%d"), timeOffset + item.Time, item.Duration, item.StaticStruct, (int)item.Effect, area);
+		//	UE_LOG(LogTemp, Warning, TEXT("Add effect: t=%.3f,  d=%.3f, s=%.3f, e=%d, a=%d"), timeOffset + item.Time, item.Duration, item.StaticStruct, (int)item.Effect, area);
 
 		timeline->Add(FBasicHapticEvent(timeOffset + item.Time, item.Duration, item.Strength, (int)item.Effect, area));
 	}
@@ -52,7 +46,7 @@ void EncodePattern(float timeOffset, const TUniquePtr<ITimeline>& timeline, UHap
 
 		}
 		else {
-		//	UE_LOG(LogTemp, Warning, TEXT("The seq wasn't loaded"));
+			//	UE_LOG(LogTemp, Warning, TEXT("The seq wasn't loaded"));
 
 		}
 	}
@@ -70,65 +64,62 @@ void EncodeExperience(float timeOffset, const TUniquePtr<ITimeline>& timeline, U
 	}
 }
 
-
-
 UPlaybackHandle* UHapticBlueprintLibrary::CreateSequenceHandle(int32  area, UHapticSequence* seq)
 {
-	if (seq == NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("Can't create a handle from a null HapticSequence!"));
-		return NULL;
-	}
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
-	EncodeSequence(0, timeline, seq, area);
+
+	if (seq == NULL)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Attempted creation of PlaybackHandle from null HapticSequence.\t\t\tReturning Empty Handle (meaning no haptics)"));
+	}
+	else
+	{
+		EncodeSequence(0, timeline, seq, area);
+	}
+
 	auto handle = NewObject<UPlaybackHandle>();
 	handle->ProvideHandleImplementation(timeline->Transmit());
 	return handle;
-
 }
-
-
-
-
 UPlaybackHandle* UHapticBlueprintLibrary::CreatePatternHandle(UHapticPattern* pat)
 {
-	if (pat == NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("Can't create a handle from a null HapticPattern!"));
-		return NULL;
-	}
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
-	EncodePattern(0, timeline, pat);
+
+	if (pat == NULL)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Attempted creation of PlaybackHandle from null HapticSequence.\t\t\tReturning Empty Handle (meaning no haptics)"));
+	}
+	else
+	{
+		EncodePattern(0, timeline, pat);
+	}
+
 	auto handle = NewObject<UPlaybackHandle>();
 	handle->ProvideHandleImplementation(timeline->Transmit());
 	return handle;
-
 }
-
 UPlaybackHandle* UHapticBlueprintLibrary::CreateExperienceHandle(UHapticExperience* exp)
 {
-	if (exp == NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("Can't create a handle from a null HapticExperience!"));
-
-		return NULL;
-	}
-
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
 
-	EncodeExperience(0, timeline, exp);
+	if (exp == NULL)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Attempted creation of PlaybackHandle from null HapticExperience.\t\t\tReturning Empty Handle (meaning no haptics)"));
+	}
+	else
+	{
+		EncodeExperience(0, timeline, exp);
+	}
 
-	auto handle = timeline->Transmit();
-	
-	auto oHandle = NewObject<UPlaybackHandle>();
-	oHandle->ProvideHandleImplementation(MoveTemp(handle));
-
-
-	return oHandle;
-
+	auto handle = NewObject<UPlaybackHandle>();
+	handle->ProvideHandleImplementation(timeline->Transmit());
+	return handle;
 }
 
 bool UHapticBlueprintLibrary::PlayTestRoutine() {
 	auto timeline = FHapticSuitModule::Get().CreateTimeline();
 	for (int i = 0; i < 5; i++) {
-		FBasicHapticEvent event(i*0.5f, 0.0, 1,  (int)EEffects::Click, 1048576);
+		FBasicHapticEvent event(i*0.5f, 0.0, 1, (int)EEffects::Click, 1048576);
 		timeline->Add(event);
 	}
 	auto handle = timeline->Transmit();
@@ -138,5 +129,9 @@ bool UHapticBlueprintLibrary::PlayTestRoutine() {
 }
 bool UHapticBlueprintLibrary::IsConnectedToService() {
 	return FHapticSuitModule::Get().GetServiceInfo(nullptr);
+}
+void UHapticBlueprintLibrary::LaunchService()
+{
+	FHapticSuitModule::Get().LaunchService();
 }
 

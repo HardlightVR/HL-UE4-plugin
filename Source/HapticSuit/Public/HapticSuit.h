@@ -22,12 +22,14 @@ public:
 
 	TUniquePtr<ITimeline> CreateTimeline() override;
 
+	virtual void LaunchService();
 	inline bool GetServiceInfo(NSVR_ServiceInfo* infoPtr);
 	inline bool GetDeviceInfo(NSVR_DeviceInfo* infoPtr);
-	inline bool PauseAllHaptics();
+	inline bool SuspendAllHaptics();
 	inline bool ResumeAllHaptics();
 	inline bool ClearAllHaptics();
-	/** IModuleInterface implementation */
+
+		/** IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 	inline bool PluginLoadedSuccessfully();

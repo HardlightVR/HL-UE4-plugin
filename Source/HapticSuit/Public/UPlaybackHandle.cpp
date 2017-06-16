@@ -20,7 +20,13 @@ UPlaybackHandle* UPlaybackHandle::Stop()
 {
 	m_handle->Reset();
 	return &*this;
+}
 
+UPlaybackHandle* UPlaybackHandle::Restart()
+{
+	m_handle->Reset();
+	m_handle->Play();
+	return &*this;
 }
 
 void UPlaybackHandle::ProvideHandleImplementation(TUniquePtr<IPlaybackHandle> handle)

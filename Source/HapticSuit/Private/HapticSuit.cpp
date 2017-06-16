@@ -22,6 +22,12 @@ TUniquePtr<ITimeline> FHapticSuitModule::CreateTimeline()
 	return TUniquePtr<ITimeline>(new FTimelineImpl(m_system));
 }
 
+void FHapticSuitModule::LaunchService()
+{
+	//Reference openvr.h - VR_Init() for how to launch an application/DLL handling stuff.
+
+}
+
 bool FHapticSuitModule::GetServiceInfo(NSVR_ServiceInfo * infoPtr)
 {
 	return NSVR_SUCCESS(NSVR_System_GetServiceInfo(m_system, infoPtr));
@@ -32,7 +38,7 @@ bool FHapticSuitModule::GetDeviceInfo(NSVR_DeviceInfo * infoPtr)
 	return NSVR_SUCCESS(NSVR_System_GetDeviceInfo(m_system, infoPtr));
 }
 
-bool FHapticSuitModule::PauseAllHaptics()
+bool FHapticSuitModule::SuspendAllHaptics()
 {
 	return NSVR_SUCCESS(NSVR_System_Haptics_Pause(m_system));
 }
@@ -52,7 +58,6 @@ void FHapticSuitModule::StartupModule()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Startup Module for NSVR Plugin"));
 
-
 	if (!NSVR_Version_IsCompatibleDLL()) {
 		UE_LOG(LogTemp, Warning, TEXT("Will not initialize NSVR library, DLL is not compatible with headers"));
 
@@ -67,8 +72,6 @@ void FHapticSuitModule::StartupModule()
 	else {
 		check(m_system != nullptr && "System is nullptr after creating!");
 	}
-
-	
 }
 
 void FHapticSuitModule::ShutdownModule()
@@ -85,8 +88,6 @@ bool FHapticSuitModule::PluginLoadedSuccessfully()
 {
 	return (m_system != nullptr);
 }
-
-
 
 
 
