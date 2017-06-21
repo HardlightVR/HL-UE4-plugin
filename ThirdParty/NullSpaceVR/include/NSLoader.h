@@ -22,6 +22,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+	//Todo: Remove all structs that must be changed in future, except for 
+	//speed-critical ones such as quaternions
 
 	// System represents the NSVR plugin context. 
 	typedef struct NSVR_System_ NSVR_System;
@@ -78,6 +80,7 @@ extern "C" {
 
 	typedef enum NSVR_EventType_ {
 		NSVR_EventType_BasicHapticEvent = 1,
+		NSVR_EventType_CurveHapticEvent = 2,
 		NSVR_EventType_Max = 65535
 	} NSVR_EventType;
 
@@ -95,6 +98,10 @@ extern "C" {
 		unsigned int ServiceMinor;
 	} NSVR_ServiceInfo;
 
+	typedef struct NSVR_HandleInfo_ {
+		float Duration;
+		float Elapsed;
+	} NSVR_HandleInfo;
 	
 	//Instantiates a new NSVR system context
 	NSVR_RETURN(NSVR_Result) NSVR_System_Create(NSVR_System** systemPtr);
@@ -117,6 +124,9 @@ extern "C" {
 	//Returns true if a suit is plugged in and the service is running, else false
 	NSVR_RETURN(NSVR_Result) NSVR_System_GetServiceInfo(NSVR_System* systemPtr, NSVR_ServiceInfo* infoPtr);
 
+	//note:
+	//Should rename to NSVR_System_Haptics_Suspend
+	//Should rename to NSVR_System_Haptics_Resume
 	/* Haptics engine */ 
 	NSVR_RETURN(NSVR_Result) NSVR_System_Haptics_Pause(NSVR_System* ptr);
 	NSVR_RETURN(NSVR_Result) NSVR_System_Haptics_Resume(NSVR_System* ptr);
@@ -139,21 +149,23 @@ extern "C" {
 	NSVR_RETURN(NSVR_Result) NSVR_Event_Create(NSVR_Event** eventPtr, NSVR_EventType type);
 	NSVR_RETURN(void)		 NSVR_Event_Release(NSVR_Event** event);
 	NSVR_RETURN(NSVR_Result) NSVR_Event_SetFloat(NSVR_Event* event, const char* key, float value);
+	NSVR_RETURN(NSVR_Result) NSVR_Event_SetFloats(NSVR_Event* event, const char* key, float* values, unsigned int length);
 	NSVR_RETURN(NSVR_Result) NSVR_Event_SetInteger(NSVR_Event* event, const char* key, int value);
 
 
 	/* Timelines */
-	NSVR_RETURN(NSVR_Result) NSVR_Timeline_Create(NSVR_Timeline** eventListPtr, NSVR_System* systemPtr);
+	NSVR_RETURN(NSVR_Result) NSVR_Timeline_Create(NSVR_Timeline** eventListPtr);
 	NSVR_RETURN(void)		 NSVR_Timeline_Release(NSVR_Timeline** listPtr);
 	NSVR_RETURN(NSVR_Result) NSVR_Timeline_AddEvent(NSVR_Timeline* list, NSVR_Event* event);
-	NSVR_RETURN(NSVR_Result) NSVR_Timeline_Transmit(NSVR_Timeline* timeline, NSVR_PlaybackHandle* handlePr);
+	NSVR_RETURN(NSVR_Result) NSVR_Timeline_Transmit(NSVR_Timeline* timeline, NSVR_System* systemPtr, NSVR_PlaybackHandle* handlePr);
 
 	/* Playback */
+	//A PlaybackHandle is only valid as long as the System that it was transmitted to exists
 	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_Create(NSVR_PlaybackHandle** handlePtr);
 	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_Command(NSVR_PlaybackHandle* handlePtr, NSVR_PlaybackCommand command);
 	NSVR_RETURN(void)		 NSVR_PlaybackHandle_Release(NSVR_PlaybackHandle** handlePtr);
 
-
+	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_GetInfo(NSVR_PlaybackHandle* handlePtr, NSVR_HandleInfo* infoPtr);
 
 
 #ifdef __cplusplus

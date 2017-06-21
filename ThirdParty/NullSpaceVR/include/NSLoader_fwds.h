@@ -17,6 +17,7 @@ typedef enum NSVR_SuccessTypes_ NSVR_SuccessTypes;
 
 typedef enum NSVR_ErrorTypes_ NSVR_ErrorTypes;
 
+typedef enum NSVR_EventType_ NSVR_EventType;
 
 typedef enum NSVR_PlaybackCommand_ NSVR_PlaybackCommand;
 
@@ -26,3 +27,5 @@ typedef struct NSVR_DeviceInfo_  NSVR_DeviceInfo;
 typedef struct NSVR_ServiceInfo_  NSVR_ServiceInfo;
 
 typedef struct NSVR_PlaybackHandle_ NSVR_PlaybackHandle;
+
+typedef struct NSVR_HandleInfo_ NSVR_HandleInfo;

@@ -10,7 +10,7 @@
 
 FTimelineImpl::FTimelineImpl(NSVR_System* systemPtr) :m_system(systemPtr)
 {
-	NSVR_Timeline_Create(&m_timeline, m_system);
+	NSVR_Timeline_Create(&m_timeline);
 }
 
 FTimelineImpl::~FTimelineImpl()
@@ -40,7 +40,7 @@ TUniquePtr<IPlaybackHandle> FTimelineImpl::Transmit()
 {
 	check(m_timeline != nullptr);
 
-	return TUniquePtr<IPlaybackHandle>(new UPlaybackHandleImpl(m_timeline));
+	return TUniquePtr<IPlaybackHandle>(new UPlaybackHandleImpl(m_timeline, m_system));
 }
 
 
