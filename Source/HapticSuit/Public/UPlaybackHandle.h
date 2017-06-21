@@ -36,7 +36,13 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Restart", Keywords = "restart reset replay haptic handle hardlight"), Category = Hardlight)
 		UPlaybackHandle* Restart();
 
+
 	void ProvideHandleImplementation(TUniquePtr<IPlaybackHandle> handle);
+
+	/** Gets whether the handle was set up using valid assets
+	An invalid handle will not play anything*/
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "IsHandleEmpty", Keywords = "invalid null empty haptic handle hardlight"), Category = Hardlight)
+	bool IsEmptyHandle();
 
 private:
 	TUniquePtr<IPlaybackHandle> m_handle;

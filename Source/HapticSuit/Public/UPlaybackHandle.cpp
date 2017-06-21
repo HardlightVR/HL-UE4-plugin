@@ -29,6 +29,11 @@ UPlaybackHandle* UPlaybackHandle::Restart()
 	return &*this;
 }
 
+bool UPlaybackHandle::IsEmptyHandle()
+{
+	return m_handle.IsValid();
+}
+
 void UPlaybackHandle::ProvideHandleImplementation(TUniquePtr<IPlaybackHandle> handle)
 {
 	m_handle = MoveTemp(handle);
