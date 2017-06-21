@@ -31,7 +31,7 @@ UPlaybackHandle* UPlaybackHandle::Restart()
 
 bool UPlaybackHandle::IsEmptyHandle()
 {
-	return m_handle.IsValid();
+	return !m_handle.IsValid();
 }
 
 void UPlaybackHandle::ProvideHandleImplementation(TUniquePtr<IPlaybackHandle> handle)
