@@ -19,10 +19,10 @@ void UPlaybackHandleImpl::Reset()
 	NSVR_PlaybackHandle_Command(m_handle, NSVR_PlaybackCommand::NSVR_PlaybackCommand_Reset);
 }
 
-UPlaybackHandleImpl::UPlaybackHandleImpl(NSVR_Timeline* timeline)
+UPlaybackHandleImpl::UPlaybackHandleImpl(NSVR_Timeline* timeline, NSVR_System* system)
 {
 	NSVR_PlaybackHandle_Create(&m_handle);
-	NSVR_Timeline_Transmit(timeline, m_handle);
+	NSVR_Timeline_Transmit(timeline, system, m_handle);
 }
 
 UPlaybackHandleImpl::~UPlaybackHandleImpl()
