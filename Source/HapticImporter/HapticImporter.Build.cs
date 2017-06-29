@@ -6,7 +6,7 @@ using System;
 
 public class HapticImporter : ModuleRules
 {
-	public HapticImporter(TargetInfo Target)
+	public HapticImporter(ReadOnlyTargetRules Target) : base(Target)
 	{
 		
 		PCHUsage = PCHUsageMode.NoSharedPCHs;

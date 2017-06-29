@@ -23,7 +23,7 @@ public class HapticSuit : ModuleRules
 	}
 
 	
-	public HapticSuit(TargetInfo Target)
+	public HapticSuit(ReadOnlyTargetRules Target) : base(Target)
 	{
 
 	
@@ -67,7 +67,7 @@ public class HapticSuit : ModuleRules
 		}
 	}
 
-	public bool LoadNullSpaceLib(TargetInfo Target)
+	public bool LoadNullSpaceLib(ReadOnlyTargetRules Target)
 	{
 		bool isLibrarySupported = false;
 
