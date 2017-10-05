@@ -8,6 +8,7 @@
 #include "FBasicHapticEvent.h"
 #include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
 #include "NSLoader.h"
+
 bool UHapticBlueprintLibrary::IsConnectedToSuit()
 {
 	return FHapticSuitModule::Get().GetDeviceInfo(nullptr);

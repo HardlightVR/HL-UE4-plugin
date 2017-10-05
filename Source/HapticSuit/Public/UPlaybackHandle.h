@@ -36,6 +36,31 @@ public:
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Restart", Keywords = "restart reset replay haptic handle hardlight"), Category = Hardlight)
 		UPlaybackHandle* Restart();
 
+	/** Gets whether the haptic handle is currently playing*/
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Is Finished Playing", Keywords = "playing complete ended done over end running active haptic handle hardlight"), Category = Hardlight)
+		bool IsFinishedPlaying();
+
+	/** Gets whether the haptic handle is currently playing*/
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Is Playing", Keywords = "playing running haptic handle hardlight"), Category = Hardlight)
+		bool IsPlaying();
+
+	/** Gets whether the haptic handle is currently playing*/
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Is Paused", Keywords = "playing paused halted interrupted frozen stalled haptic handle hardlight"), Category = Hardlight)
+		bool IsPaused();
+
+	/** Gets the current playing progress of the handle*/
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "ElapsedDuration", Keywords = "progress haptic handle hardlight"), Category = Hardlight)
+		float ElapsedDuration();
+
+	/** The total duration of the haptic handle */
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "TotalDuration", Keywords = "progress haptic handle hardlight"), Category = Hardlight)
+		float TotalDuration();
+
+	/** Gets the elapsed duration over the total duration 
+	Clamped 0.0 to 1.0 */
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "PercentElapsed", Keywords = "percent progress haptic handle hardlight"), Category = Hardlight)
+		float PercentElapsed();
+
 
 	void ProvideHandleImplementation(TUniquePtr<IPlaybackHandle> handle);
 

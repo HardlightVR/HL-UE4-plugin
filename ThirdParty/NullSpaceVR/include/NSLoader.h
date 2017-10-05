@@ -22,8 +22,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	//Todo: Remove all structs that must be changed in future, except for 
-	//speed-critical ones such as quaternions
 
 	// System represents the NSVR plugin context. 
 	typedef struct NSVR_System_ NSVR_System;
@@ -76,7 +74,7 @@ extern "C" {
 		NSVR_PlaybackCommand_Reset
 	} NSVR_PlaybackCommand;
 
-	
+
 
 	typedef enum NSVR_EventType_ {
 		NSVR_EventType_BasicHapticEvent = 1,
@@ -98,10 +96,17 @@ extern "C" {
 		unsigned int ServiceMinor;
 	} NSVR_ServiceInfo;
 
-	typedef struct NSVR_HandleInfo_ {
+	typedef enum NSVR_EffectInfo_State_ {
+		NSVR_EffectInfo_State_Playing,
+		NSVR_EffectInfo_State_Paused,
+		NSVR_EffectInfo_State_Idle
+	} NSVR_EffectInfo_State;
+
+	typedef struct NSVR_EffectInfo_ {
 		float Duration;
 		float Elapsed;
-	} NSVR_HandleInfo;
+		NSVR_EffectInfo_State PlaybackState;
+	} NSVR_EffectInfo;
 	
 	//Instantiates a new NSVR system context
 	NSVR_RETURN(NSVR_Result) NSVR_System_Create(NSVR_System** systemPtr);
@@ -165,7 +170,7 @@ extern "C" {
 	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_Command(NSVR_PlaybackHandle* handlePtr, NSVR_PlaybackCommand command);
 	NSVR_RETURN(void)		 NSVR_PlaybackHandle_Release(NSVR_PlaybackHandle** handlePtr);
 
-	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_GetInfo(NSVR_PlaybackHandle* handlePtr, NSVR_HandleInfo* infoPtr);
+	NSVR_RETURN(NSVR_Result) NSVR_PlaybackHandle_GetInfo(NSVR_PlaybackHandle* handlePtr, NSVR_EffectInfo* infoPtr);
 
 
 #ifdef __cplusplus

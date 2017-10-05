@@ -28,4 +28,6 @@ typedef struct NSVR_ServiceInfo_  NSVR_ServiceInfo;
 
 typedef struct NSVR_PlaybackHandle_ NSVR_PlaybackHandle;
 
-typedef struct NSVR_HandleInfo_ NSVR_HandleInfo;
+typedef struct NSVR_EffectInfo_ NSVR_EffectInfo;
+
+typedef enum NSVR_EffectInfo_State_ NSVR_EffectInfo_State;
