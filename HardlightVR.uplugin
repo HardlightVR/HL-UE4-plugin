@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.3.0",
+	"FriendlyName": "Hardlight Plugin",
+	"Description": "Haptic feedback plugin for the Hardlight Runtime",
+	"Category": "Haptics",
+	"CreatedBy": "NullSpace VR",
+	"CreatedByURL": "http://hardlightvr.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "HardlightSDK",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			 "WhitelistPlatforms": [ "Win32", "Win64" ]
+
+		},
+		{
+			"Name": "HardlightImporter",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			 "WhitelistPlatforms": [ "Win32", "Win64" ]
+
+		}
+	],
+	"RequiresBuildPlatform": false
+}
