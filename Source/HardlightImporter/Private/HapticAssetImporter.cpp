@@ -18,6 +18,8 @@
 #include "Runtime/Json/Public/Serialization/JsonReader.h"
 #include "Runtime/Json/Public/Serialization/JsonSerializer.h"
 
+#include "UObject/SoftObjectPtr.h"
+
 UObject* CreateNewAsset(UClass* AssetClass, const FString& TargetPath, const FString& DesiredName, EObjectFlags Flags)
 {
 	FAssetToolsModule& AssetToolsModule = FModuleManager::GetModuleChecked<FAssetToolsModule>("AssetTools");
@@ -193,7 +195,7 @@ bool FHapticAssetImporter::ParseSequence(UHapticSequence* sequence) {
 		}
 		else {
 			FString a = obj->GetStringField("effect");
-			UE_LOG(LogTemp, Warning, TEXT("Tried to parse an unknown effec: %s"), *a );
+			UE_LOG(LogTemp, Warning, TEXT("Tried to parse an unknown effect: %s"), *a );
 
 		}
 
@@ -218,7 +220,7 @@ void FHapticAssetImporter::ParsePattern(UHapticPattern* pattern)
 		Args.Time = nodeObj->GetNumberField("time");
 		const auto& seq_name = nodeObj->GetStringField("sequence").ToLower();
 		//ADD STRENGTH
-		pattern->SequenceArray.Add(FSequencePair(Args, TAssetPtr<UHapticSequence>(*ImportedSequences.Find(seq_name))));
+		pattern->SequenceArray.Add(FSequencePair(Args, TSoftObjectPtr<UHapticSequence>(*ImportedSequences.Find(seq_name))));
 	}
 }
 
@@ -231,7 +233,7 @@ void FHapticAssetImporter::ParseExperience(UHapticExperience* experience)
 		FPatternArgs Args;
 		Args.Time = nodeObj->GetNumberField("time");
 		const auto& pat_name = nodeObj->GetStringField("pattern").ToLower();
-		experience->PatternArray.Add(FPatternPair(Args, TAssetPtr<UHapticPattern>(*ImportedPatterns.Find(pat_name))));
+		experience->PatternArray.Add(FPatternPair(Args, TSoftObjectPtr<UHapticPattern>(*ImportedPatterns.Find(pat_name))));
 	}
 }
 
@@ -265,7 +267,12 @@ UHapticSequence* CreateNewSequence(FString key, UObject* InParent, EObjectFlags 
 	const FString SanitizeName = ObjectTools::SanitizeObjectName(key);
 //	UHapticSequence* Result = NewObject<UHapticSequence>(InParent, FName(*SanitizeName), Flags);
 	const FString LongPackagePath = FPackageName::GetLongPackagePath(InParent->GetOutermost()->GetPathName());
+	UE_LOG(LogTemp, Warning, TEXT("Creating sequence: LongPackagePath = %s"), *LongPackagePath);
+
 	const FString TargetSequencePath = LongPackagePath / TEXT("Sequences");
+
+	UE_LOG(LogTemp, Warning, TEXT("Creating sequence: TargetSequencePath = %s"), *TargetSequencePath);
+
 	UHapticSequence* Result = CastChecked<UHapticSequence>(CreateNewAsset(UHapticSequence::StaticClass(), TargetSequencePath, SanitizeName, Flags));
 	Result->AssetType = UHapticAsset::EAssetType::Sequence;
 	return Result;

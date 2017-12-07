@@ -41,7 +41,7 @@ namespace hlvr {
 		const TResult *operator->() const { return valptr(); }
 		TResult *operator->() { return valptr(); }
 
-		explicit operator bool() const noexcept {
+		explicit operator bool() const  {
 			return is_expected;
 		}
 
@@ -97,15 +97,15 @@ namespace hlvr {
 		public:
 
 
-			typename  const Traits::native_handle_type* native_handle() const noexcept {
+			typename  const Traits::native_handle_type* native_handle() const  {
 				return m_handle.get();
 			}
 
-			typename Traits::native_handle_type* native_handle() noexcept {
+			typename Traits::native_handle_type* native_handle() {
 				return m_handle.get();
 			}
 
-			explicit operator bool() const noexcept {
+			explicit operator bool() const {
 				return (bool)m_handle;
 			}
 			native_handle_owner(typename Traits::deleter_type d) : m_handle{nullptr, d} {}

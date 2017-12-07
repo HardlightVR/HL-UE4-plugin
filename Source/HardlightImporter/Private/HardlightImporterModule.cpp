@@ -31,9 +31,14 @@ void FHardlightImporterModule::StartupModule()
 void FHardlightImporterModule::ShutdownModule()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Shutdown Module for HLVR Importer module"));
-	IAssetTools& assetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
-	assetTools.UnregisterAssetTypeActions(m_assetActions);
-	assetTools.UnregisterAssetTypeActions(m_sequenceActions);
+
+	if (FModuleManager::Get().IsModuleLoaded("AssetTools")) {
+		UE_LOG(LogTemp, Warning, TEXT("HLVR Importer: unregistering asset actions"));
+
+		IAssetTools& assetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
+		assetTools.UnregisterAssetTypeActions(m_assetActions);
+		assetTools.UnregisterAssetTypeActions(m_sequenceActions);
+	}
 }
 
 FHardlightImporterModule::FHardlightImporterModule():

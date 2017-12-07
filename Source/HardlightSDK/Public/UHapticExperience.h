@@ -6,7 +6,6 @@
 #include "UObject/ObjectMacros.h"
 #include "UObject/Object.h"
 #include "FEffectStruct.h"
-#include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
 #include "FPatternPair.h"
 #include "UHapticExperience.generated.h"
 

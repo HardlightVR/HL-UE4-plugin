@@ -54,6 +54,8 @@ public:
 		return status_code(HLVR_Event_SetInt(m_handle.get(), key, val));
 	}
 
+	
+
 	static expected<event, status_code> make(HLVR_EventType type) {
 		return make_helper(detail::event_create(type));
 	}

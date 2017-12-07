@@ -51,12 +51,43 @@ extern "C" {
 	
 	
 	/*! Reserves space between regions */
-	const int32_t HLVR_SUBREGION_BLOCK = 1000000;
+	const uint32_t HLVR_SUBREGION_BLOCK = 1000000;
 	
 	/*!
 		A set of one or more HLVR_Regions are used to specify where particular events should take place. 
 	*/
-	typedef enum HLVR_Region {
+
+	const uint32_t hlvr_region_body = 1 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_torso = 2 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_torso_front = 3 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_middle_sternum = 3 * HLVR_SUBREGION_BLOCK + 1;
+	const uint32_t hlvr_region_chest_left = 4 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_chest_right = 5 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_ab_left = 6 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_middle_ab_left = 7 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_lower_ab_left = 8 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_ab_right = 9 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_middle_ab_right = 10 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_lower_ab_right = 11 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_torso_back = 12 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_torso_left = 13 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_torso_right = 14 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_back_left = 15 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_back_right = 16 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_arm_left = 17 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_lower_arm_left = 18 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_arm_right = 19 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_lower_arm_right = 20 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_shoulder_left = 21 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_shoulder_right = 22 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_leg_left = 23 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_lower_leg_left = 24 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_upper_leg_right = 25 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_lower_leg_right = 26 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_head = 27 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_palm_left = 28 * HLVR_SUBREGION_BLOCK;
+	const uint32_t hlvr_region_palm_right = 29 * HLVR_SUBREGION_BLOCK;
+	/*typedef enum HLVR_Region {
 		hlvr_region_UNKNOWN = 0,
 		hlvr_region_body = 1 * HLVR_SUBREGION_BLOCK,
 		hlvr_region_torso = 2 * HLVR_SUBREGION_BLOCK,
@@ -91,7 +122,7 @@ extern "C" {
 		hlvr_region_MIN = hlvr_int32min,
 		hlvr_region_MAX = hlvr_int32max
 	} HLVR_Region;
-
+*/
 
 
 	

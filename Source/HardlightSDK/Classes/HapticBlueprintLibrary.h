@@ -33,30 +33,32 @@ class UHapticBlueprintLibrary : public UBlueprintFunctionLibrary
 
 public:
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 	static UPlaybackHandle* CreateSequenceHandle(int32 area, UHapticSequence* sequence);
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static UPlaybackHandle* CreatePatternHandle(UHapticPattern* pattern);
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static UPlaybackHandle* CreateExperienceHandle(UHapticExperience* experience);
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static bool PlayTestRoutine();
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static bool IsConnectedToService();
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static bool IsConnectedToSuit();
 
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static bool PauseAllHaptics();
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static bool ResumeAllHaptics();
-	UFUNCTION(BlueprintCallable, Category = HapticSuit)
+	UFUNCTION(BlueprintCallable, Category = Hardlight)
 		static bool ClearAllHaptics();
+
+	
 
 };
 

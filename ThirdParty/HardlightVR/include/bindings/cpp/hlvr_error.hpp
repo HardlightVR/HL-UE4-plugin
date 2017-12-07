@@ -46,7 +46,7 @@ public:
 	const HLVR_Result value() const {
 		return m_code;
 	}
-	explicit operator bool() const noexcept{
+	explicit operator bool() const{
 		return HLVR_OK(m_code);
 	}
 private:

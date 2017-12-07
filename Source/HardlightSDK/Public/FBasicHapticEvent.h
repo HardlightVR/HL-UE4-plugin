@@ -1,12 +1,12 @@
 #pragma once
-
+#include <vector>
 struct FBasicHapticEvent {
 	float Time;
 	float Duration;
 	float Strength;
 	int Effect;
-	int Area;
+	std::vector<uint32_t> Regions;
 
-	FBasicHapticEvent(float time, float duration, float strength, int effect, int area);
+	FBasicHapticEvent(float time, float duration, float strength, int effect, std::vector<uint32_t> regions);
 	
 };
