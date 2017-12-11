@@ -4,7 +4,7 @@
 #include "FSequencePair.h"
 
 
-FSequencePair::FSequencePair(FSequenceArgs args, TSoftObjectPtr<UHapticSequence> seq) :
+FSequencePair::FSequencePair(FSequenceArgs args, TAssetPtr<UHapticSequence> seq) :
 	Args(args)
 	, Sequence(seq)
 {

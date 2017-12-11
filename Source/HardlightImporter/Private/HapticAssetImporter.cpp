@@ -18,7 +18,7 @@
 #include "Runtime/Json/Public/Serialization/JsonReader.h"
 #include "Runtime/Json/Public/Serialization/JsonSerializer.h"
 
-#include "UObject/SoftObjectPtr.h"
+#include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
 
 UObject* CreateNewAsset(UClass* AssetClass, const FString& TargetPath, const FString& DesiredName, EObjectFlags Flags)
 {
@@ -220,7 +220,7 @@ void FHapticAssetImporter::ParsePattern(UHapticPattern* pattern)
 		Args.Time = nodeObj->GetNumberField("time");
 		const auto& seq_name = nodeObj->GetStringField("sequence").ToLower();
 		//ADD STRENGTH
-		pattern->SequenceArray.Add(FSequencePair(Args, TSoftObjectPtr<UHapticSequence>(*ImportedSequences.Find(seq_name))));
+		pattern->SequenceArray.Add(FSequencePair(Args, TAssetPtr<UHapticSequence>(*ImportedSequences.Find(seq_name))));
 	}
 }
 
@@ -233,7 +233,7 @@ void FHapticAssetImporter::ParseExperience(UHapticExperience* experience)
 		FPatternArgs Args;
 		Args.Time = nodeObj->GetNumberField("time");
 		const auto& pat_name = nodeObj->GetStringField("pattern").ToLower();
-		experience->PatternArray.Add(FPatternPair(Args, TSoftObjectPtr<UHapticPattern>(*ImportedPatterns.Find(pat_name))));
+		experience->PatternArray.Add(FPatternPair(Args, TAssetPtr<UHapticPattern>(*ImportedPatterns.Find(pat_name))));
 	}
 }
 
@@ -245,7 +245,7 @@ int32 FHapticAssetImporter::ParseArea(const FString& areaString)
 	areaString.ParseIntoArray(Tokens, TEXT("|"), 1);
 	int32 result = 0;
 	for (FString token : Tokens) {
-		FString cleanedUp = token.TrimStartAndEnd();
+		FString cleanedUp = token.Trim().TrimTrailing();
 		auto potentialEnum = AreasMap.Find(cleanedUp);
 		if (potentialEnum != nullptr) {
 			result |= *potentialEnum;

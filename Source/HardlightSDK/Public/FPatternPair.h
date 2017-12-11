@@ -7,7 +7,7 @@
 #include "UObject/Object.h"
 #include "FPatternArgs.h"
 #include "UHapticPattern.h"
-#include "Runtime/CoreUObject/Public/UObject/SoftObjectPtr.h"
+#include "Runtime/CoreUObject/Public/UObject/AssetPtr.h"
 #include "FPatternPair.generated.h"
 
 
@@ -17,13 +17,13 @@ struct HARDLIGHTSDK_API FPatternPair
 	GENERATED_BODY()
 
 public:
-	FPatternPair(FPatternArgs args, TSoftObjectPtr<UHapticPattern> seq);
+	FPatternPair(FPatternArgs args, TAssetPtr<UHapticPattern> seq);
 	FPatternPair() {}
 	UPROPERTY(EditAnywhere, Category = Data)
 	FPatternArgs Args;
 
 	UPROPERTY(EditAnywhere, Category = Data)
-	TSoftObjectPtr<UHapticPattern> Pattern;
+	TAssetPtr<UHapticPattern> Pattern;
 	
 
 };
