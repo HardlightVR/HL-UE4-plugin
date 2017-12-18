@@ -17,6 +17,52 @@ namespace detail {
 
 }
 
+namespace version {
+
+	struct version_info {
+		int major;
+		int minor;
+		int patch;
+	};
+
+
+	static bool is_compatible_headers() {
+		return HLVR_Version_IsCompatibleDLL() != 0;
+	}
+
+	static const char* get_string() {
+		return HLVR_Version_GetString();
+	}
+
+	static version_info get() {
+		uint32_t v = HLVR_Version_Get();
+
+		uint32_t major_mask = 0xFF000000;
+		uint32_t minor_mask = 0x00FF0000;
+		uint32_t patch_mask = 0x0000FFFF;
+
+		version_info info;
+		info.major = (v & major_mask) >> 24;
+		info.minor = (v & minor_mask) >> 16;
+		info.patch = (v & patch_mask);
+		return info;
+	}
+
+   static bool is_at_least(int major, int minor, int patch) {
+		version_info info = get();
+
+		if (info.major < major) return false;
+		if (info.major > major) return true;
+		if (info.minor < minor) return false;
+		if (info.minor > minor) return true;
+		if (info.patch < patch) return false;
+		return true;
+	}
+
+	
+
+}
+
 struct nodes_t {};
 struct regions_t {};
 
@@ -28,6 +74,9 @@ const static regions_t regions{};
 class system : public detail::native_handle_owner<system, detail::system_traits> {
 public:
 	using system_handle = detail::native_handle_owner<system, detail::system_traits>;
+	using region_t = uint32_t;
+	using node_t = uint32_t;
+	using device_t = uint32_t;
 
 	system() : system_handle(&HLVR_System_Destroy) {}
 	void shutdown() {
@@ -61,7 +110,7 @@ public:
 		return devices;
 	}
 
-	std::vector<HLVR_NodeInfo> get_nodes(uint32_t device_id) {
+	std::vector<HLVR_NodeInfo> get_nodes(device_t device_id) {
 		assert(m_handle);
 
 		std::vector<HLVR_NodeInfo> nodes;
@@ -83,29 +132,7 @@ public:
 	status_code push_event(hlvr::event& event) {
 		assert(m_handle);
 		assert(event);
-		return status_code(HLVR_System_StreamEvent(m_handle.get(), event.native_handle()));
-	}
-
-
-	expected<HLVR_TrackingUpdate, status_code> poll_tracking() {
-		assert(m_handle);
-		HLVR_TrackingUpdate update = { 0 };
-		auto ec = HLVR_System_PollTracking(m_handle.get(), &update);
-		if (HLVR_OK(ec)) { 
-			return update; 
-		} else { 
-			return make_unexpected(status_code(ec));
-		}
-	}
-
-	status_code enable_tracking(uint32_t device_id) {
-		assert(m_handle);
-		return status_code(HLVR_System_EnableTracking(m_handle.get(), device_id));
-	}
-
-	status_code disable_tracking(uint32_t device_id) {
-		assert(m_handle);
-		return status_code(HLVR_System_DisableTracking(m_handle.get(), device_id));
+		return status_code(HLVR_System_PushEvent(m_handle.get(), event.native_handle()));
 	}
 
 	

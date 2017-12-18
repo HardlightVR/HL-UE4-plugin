@@ -3,7 +3,8 @@
 	\copyright Copyright 2017 NullSpace VR, Inc All Rights reserved.
 */
 
-#pragma once
+#ifndef __HLVR_INCLUDE_HLVR_FORWARDS_H__
+#define __HLVR_INCLUDE_HLVR_FORWARDS_H__
 
 typedef struct HLVR_System HLVR_System;
 typedef struct HLVR_Timeline HLVR_Timeline;
@@ -36,3 +37,4 @@ typedef enum HLVR_Waveform HLVR_Waveform;
 typedef enum HLVR_SuccessTypes HLVR_SuccessTypes;
 typedef enum HLVR_ErrorTypes HLVR_ErrorTypes;
 
+#endif //__HLVR_INCLUDE_HLVR_FORWARDS_H__

@@ -2,7 +2,8 @@
 	\brief Experimental and unstable features
 	\copyright Copyright 2017 NullSpace VR, Inc All Rights reserved.
 */
-#pragma once
+#ifndef __HLVR_INCLUDE_HLVR_EXPERIMENTAL_H__
+#define __HLVR_INCLUDE_HLVR_EXPERIMENTAL_H__
 
 
 #include <stdint.h>
@@ -31,7 +32,6 @@ extern "C" {
 	typedef struct HLVR_BodyView HLVR_BodyView;
 
 
-	/*! thing*/
 	HLVR_RETURN_EXP(HLVR_Result) HLVR_BodyView_Create(HLVR_BodyView** body);
 	HLVR_RETURN_EXP(HLVR_Result) HLVR_BodyView_Release(HLVR_BodyView** body);
 	HLVR_RETURN_EXP(HLVR_Result) HLVR_BodyView_Poll(HLVR_BodyView* body, HLVR_System* system);
@@ -40,7 +40,7 @@ extern "C" {
 	HLVR_RETURN_EXP(HLVR_Result) HLVR_BodyView_GetNodeRegion(HLVR_BodyView * body, uint32_t nodeIndex, uint32_t* outRegion);
 
 	HLVR_RETURN_EXP(HLVR_Result) HLVR_BodyView_GetIntensity(HLVR_BodyView * body, uint32_t nodeIndex, float* outIntensity);
-
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_BodyView_GetWaveform(HLVR_BodyView* body, uint32_t nodeIndex, int32_t* outWaveform);
 	
 	typedef struct HLVR_Quaternion {
 		float w;
@@ -79,11 +79,16 @@ extern "C" {
 	} HLVR_TrackingUpdate;
 
 	
-	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_PollTracking(HLVR_System* ptr, HLVR_TrackingUpdate* updatePtr);
-	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_EnableTracking(HLVR_System* ptr, uint32_t device_id);
-	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_DisableTracking(HLVR_System* ptr, uint32_t device_id);
 
-	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_StreamEvent(HLVR_System* system, HLVR_Event* data);
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_Tracking_GetOrientation(HLVR_System* ptr, uint32_t region, HLVR_Quaternion* outOrientation);
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_Tracking_GetCompass(HLVR_System* ptr, uint32_t region, HLVR_Vector3f* outCompass);
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_Tracking_GetGravity(HLVR_System* ptr, uint32_t region, HLVR_Vector3f* outGravity);
+	
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_Tracking_Enable(HLVR_System* ptr, uint32_t device_id);
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_Tracking_Disable(HLVR_System* ptr, uint32_t device_id);
+
+
+	HLVR_RETURN_EXP(HLVR_Result) HLVR_System_PushEvent(HLVR_System* system, const HLVR_Event* data);
 
 	
 
@@ -91,3 +96,4 @@ extern "C" {
 }
 #endif
 
+#endif // __HLVR_INCLUDE_HLVR_EXPERIMENTAL_H_

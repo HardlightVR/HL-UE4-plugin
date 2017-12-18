@@ -64,6 +64,7 @@ bool FHapticSuitModule::ClearAllHaptics()
 
 void FHapticSuitModule::StartupModule()
 {
+	
 	UE_LOG(LogTemp, Warning, TEXT("Startup Module for HLVR Plugin"));
 
 
